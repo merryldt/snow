@@ -1,0 +1,772 @@
+2019-05-12 21:37:20.392  INFO 14512 --- [main] com.summer.isnow.ISnowApplication        : Starting ISnowApplication on DESKTOP-SVM3U85 with PID 14512 (H:\snow\isnow\target\classes started by merry in H:\snow)
+2019-05-12 21:37:20.396 DEBUG 14512 --- [main] com.summer.isnow.ISnowApplication        : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2019-05-12 21:37:20.397  INFO 14512 --- [main] com.summer.isnow.ISnowApplication        : No active profile set, falling back to default profiles: default
+2019-05-12 21:37:20.454  INFO 14512 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a448449: startup date [Sun May 12 21:37:20 CST 2019]; root of context hierarchy
+2019-05-12 21:37:21.880  INFO 14512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-12 21:37:22.391  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration$$EnhancerBySpringCGLIB$$f4b197f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.480  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration$$EnhancerBySpringCGLIB$$f744d69b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.582  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'eventBus' of type [org.apache.shiro.event.support.DefaultEventBus] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.776  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.config.web.autoconfigure.ShiroWebAutoConfiguration' of type [org.apache.shiro.spring.config.web.autoconfigure.ShiroWebAutoConfiguration$$EnhancerBySpringCGLIB$$194df860] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.792  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.summer.isnow.shior.ShiroConfig$$EnhancerBySpringCGLIB$$89cbc213] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.834  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'druidDataSourceConfigSecond' of type [com.summer.icore.config.DruidDataSourceConfigSecond$$EnhancerBySpringCGLIB$$8b004514] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.839 ERROR 14512 --- [main] c.s.i.c.DruidDataSourceConfigSecond      : 配置 url 属性jdbc:mysql://47.100.2.226:3306/todo  username=====root===password=====root=====
+2019-05-12 21:37:22.938  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:22.983  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$c38c5da6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:23.149  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:23.162  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSourceInitializer' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:23.166  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.summer.icore.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$2076a906] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.023  INFO 14512 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-05-12 21:37:25.335  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisSqlSessionFactoryBean' of type [com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.338  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisSqlSessionFactoryBean' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.342  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.346  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy89] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.356  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration$$EnhancerBySpringCGLIB$$273b3fd3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.371  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.390  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration$$EnhancerBySpringCGLIB$$7592e155] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.434  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.464  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.489  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userServiceImpl' of type [com.summer.icore.serviceImpl.UserServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.520  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jwtRealm' of type [com.summer.isnow.shior.JWTShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:25.536  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dbShiroRealm' of type [com.summer.isnow.shior.DbShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.035  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionStorageEvaluator' of type [org.apache.shiro.web.mgt.DefaultWebSessionStorageEvaluator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.039  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'subjectDAO' of type [org.apache.shiro.mgt.DefaultSubjectDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.043  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'subjectFactory' of type [org.apache.shiro.web.mgt.DefaultWebSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.048  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'rememberMeCookieTemplate' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.054  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'rememberMeManager' of type [org.apache.shiro.web.mgt.CookieRememberMeManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.060  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authenticator' of type [org.apache.shiro.authc.pam.ModularRealmAuthenticator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.066  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizer' of type [org.apache.shiro.authz.ModularRealmAuthorizer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.075  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.ServletContainerSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.088  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.109  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.118  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$2aaaf064] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.153  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$1f1eb508] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.178  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.189  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManagerCustomizers' of type [org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.193  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration$$EnhancerBySpringCGLIB$$cfb05162] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.217  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.325  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManager' of type [org.springframework.data.redis.cache.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.345  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.374  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e198ba46] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.445  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroFilterChainDefinition' of type [org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:26.447  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.config.web.autoconfigure.ShiroWebFilterConfiguration' of type [org.apache.shiro.spring.config.web.autoconfigure.ShiroWebFilterConfiguration$$EnhancerBySpringCGLIB$$4bb85d97] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 21:37:27.036  INFO 14512 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8082 (http)
+2019-05-12 21:37:27.045  INFO 14512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-12 21:37:27.046  INFO 14512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-05-12 21:37:28.105  INFO 14512 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-12 21:37:28.112  INFO 14512 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/snow]   : Initializing Spring embedded WebApplicationContext
+2019-05-12 21:37:28.112  INFO 14512 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7658 ms
+2019-05-12 21:37:28.594  INFO 14512 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-12 21:37:28.595  INFO 14512 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'simpleCORSFilter' to urls: [/*]
+2019-05-12 21:37:28.595  INFO 14512 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springShiroFilter' to: [/*]
+2019-05-12 21:37:28.595  INFO 14512 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-05-12 21:37:28.596  INFO 14512 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-12 21:37:29.732  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/async],methods=[GET]}" onto public java.util.concurrent.Callable<com.summer.icore.model.User> com.summer.isnow.api.AsyncRequestController.doAsync()
+2019-05-12 21:37:29.737  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/500],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.summer.isnow.handler.HttpErrorHandler.errorHtml500(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-12 21:37:29.738  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/500]}" onto public org.springframework.http.ResponseEntity<com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String, java.lang.Object>>> com.summer.isnow.handler.HttpErrorHandler.error500(javax.servlet.http.HttpServletRequest)
+2019-05-12 21:37:29.739  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/404],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.summer.isnow.handler.HttpErrorHandler.errorHtml404(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-12 21:37:29.739  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/404]}" onto public org.springframework.http.ResponseEntity<com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String, java.lang.Object>>> com.summer.isnow.handler.HttpErrorHandler.error404(javax.servlet.http.HttpServletRequest)
+2019-05-12 21:37:29.740  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2019-05-12 21:37:29.746  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-05-12 21:37:29.746  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-05-12 21:37:29.816  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-05-12 21:37:30.910  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a448449: startup date [Sun May 12 21:37:20 CST 2019]; root of context hierarchy
+2019-05-12 21:37:30.920  INFO 14512 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Detected ResponseBodyAdvice bean in responseHeaderAdvice
+2019-05-12 21:37:31.115  INFO 14512 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in restExceptionHandler
+2019-05-12 21:37:31.116  INFO 14512 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected ResponseBodyAdvice implementation in responseHeaderAdvice
+2019-05-12 21:37:32.390  INFO 14512 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-05-12 21:37:33.236  INFO 14512 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-05-12 21:37:33.237  INFO 14512 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-05-12 21:37:33.244  INFO 14512 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-05-12 21:37:33.254  INFO 14512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-12 21:37:33.273  INFO 14512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found {0} custom documentation plugin(s)
+2019-05-12 21:37:33.282  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-12 21:37:33.287  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 21:37:33.289  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: doAsync belongs to groups: [[ResourceGroup{groupName='async-request-controller', position=0, controller=com.summer.isnow.api.AsyncRequestController}]] 
+2019-05-12 21:37:33.290  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.290  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: errorHtml404 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 21:37:33.290  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.291  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: error404 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 21:37:33.291  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.291  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: errorHtml500 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 21:37:33.291  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.292  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: error500 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 21:37:33.300  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/async-request-controller Description: async-request-controller Position: 0
+2019-05-12 21:37:33.301  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/http-error-handler Description: http-error-handler Position: 0
+2019-05-12 21:37:33.324  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.325  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.332  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.332  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.343  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.343  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.347  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icore.model.User(true)
+2019-05-12 21:37:33.347  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icore.model.User(true)
+2019-05-12 21:37:33.383  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.383  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 21:37:33.385  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icore.model.User(true)
+2019-05-12 21:37:33.385  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icore.model.User(true)
+2019-05-12 21:37:33.388  INFO 14512 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /api/async.com.summer.isnow.api.AsyncRequestController.doAsync.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.388  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /api/async.com.summer.isnow.api.AsyncRequestController.doAsync.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.397  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 21:37:33.400  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 21:37:33.422  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.423  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.423  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.423  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.427  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.427  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.428  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.428  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.428  INFO 14512 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/404.com.summer.isnow.handler.HttpErrorHandler.error404.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.429  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/404.com.summer.isnow.handler.HttpErrorHandler.error404.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.430  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.432  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.432  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.433  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.434  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.435  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.436  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.437  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.438  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.439  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.440  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.441  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.442  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.443  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.444  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.447  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 21:37:33.448  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.449  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.449  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.449  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 21:37:33.450  INFO 14512 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/500.com.summer.isnow.handler.HttpErrorHandler.error500.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.450  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/500.com.summer.isnow.handler.HttpErrorHandler.error500.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.455  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.456  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.459  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.460  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.460  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.462  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.462  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.464  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.465  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.466  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.467  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.467  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.468  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.469  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.470  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.471  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 21:37:33.472  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.472  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.472  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.472  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.478  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.479  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.479  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.479  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.480  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.480  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.482  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.482  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.482  INFO 14512 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/404.com.summer.isnow.handler.HttpErrorHandler.errorHtml404.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.483  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/404.com.summer.isnow.handler.HttpErrorHandler.errorHtml404.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.483  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.484  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.485  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.487  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.487  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.488  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.489  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.489  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.489  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.490  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.490  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.491  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.491  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.492  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.493  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.493  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 21:37:33.494  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.495  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.496  INFO 14512 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.498  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 21:37:33.499  INFO 14512 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.499  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 21:37:33.500  INFO 14512 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/500.com.summer.isnow.handler.HttpErrorHandler.errorHtml500.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.500  INFO 14512 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/500.com.summer.isnow.handler.HttpErrorHandler.errorHtml500.DefaultGenericTypeNamingStrategy
+2019-05-12 21:37:33.501  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.501  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.502  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.502  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.503  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.504  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.504  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.505  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.506  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.506  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.507  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.508  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.509  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.509  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.510  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.511  INFO 14512 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 21:37:33.593  INFO 14512 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8082 (http)
+2019-05-12 21:37:33.598 ERROR 14512 --- [main] com.summer.isnow.ISnowApplication        : 启动完成！
+2019-05-12 21:37:33.600  INFO 14512 --- [main] com.summer.isnow.ISnowApplication        : Started ISnowApplication in 13.828 seconds (JVM running for 15.512)
+2019-05-12 21:38:09.018 ERROR 7364 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:38:18.984 ERROR 18508 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:38:39.679 ERROR 18044 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:39:52.560 ERROR 12840 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:40:18.435 ERROR 5168 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:42:49.375 ERROR 7316 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:44:08.638 ERROR 3568 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:46:06.534 ERROR 2272 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:52:43.353 ERROR 8252 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 21:54:55.957 ERROR 14444 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@27:93 - no applicable action for [include], current ElementPath  is [[configuration][appender][include]]
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@27:93 - no applicable action for [include], current ElementPath  is [[configuration][appender][include]]
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [console]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 22:03:07.815 ERROR 15784 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@25:93 - no applicable action for [include], current ElementPath  is [[configuration][appender][include]]
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:315)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.summer.isnow.ISnowApplication.main(ISnowApplication.java:34)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@25:93 - no applicable action for [include], current ElementPath  is [[configuration][appender][include]]
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:162)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:56)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:115)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:308)
+	... 14 common frames omitted
+
+2019-05-12 22:03:25.368  INFO 7452 --- [main] com.summer.isnow.ISnowApplication        : Starting ISnowApplication on DESKTOP-SVM3U85 with PID 7452 (H:\snow\isnow\target\classes started by merry in H:\snow)
+2019-05-12 22:03:25.373 DEBUG 7452 --- [main] com.summer.isnow.ISnowApplication        : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2019-05-12 22:03:25.373  INFO 7452 --- [main] com.summer.isnow.ISnowApplication        : No active profile set, falling back to default profiles: default
+2019-05-12 22:03:25.430  INFO 7452 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ec166e: startup date [Sun May 12 22:03:25 CST 2019]; root of context hierarchy
+2019-05-12 22:03:26.696  INFO 7452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-12 22:03:27.115  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration$$EnhancerBySpringCGLIB$$ac9999a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.201  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration$$EnhancerBySpringCGLIB$$af2cd84a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.287  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'eventBus' of type [org.apache.shiro.event.support.DefaultEventBus] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.415  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.config.web.autoconfigure.ShiroWebAutoConfiguration' of type [org.apache.shiro.spring.config.web.autoconfigure.ShiroWebAutoConfiguration$$EnhancerBySpringCGLIB$$d135fa0f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.430  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.summer.isnow.shior.ShiroConfig$$EnhancerBySpringCGLIB$$41b3c3c2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.463  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'druidDataSourceConfigSecond' of type [com.summer.icore.config.DruidDataSourceConfigSecond$$EnhancerBySpringCGLIB$$42e846c3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.468 ERROR 7452 --- [main] c.s.i.c.DruidDataSourceConfigSecond      : 配置 url 属性jdbc:mysql://47.100.2.226:3306/todo  username=====root===password=====root=====
+2019-05-12 22:03:27.531  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.572  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$7b745f55] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.694  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.713  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSourceInitializer' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:27.717  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.summer.icore.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d85eaab5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:30.925  INFO 7452 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-05-12 22:03:31.074  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisSqlSessionFactoryBean' of type [com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.077  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisSqlSessionFactoryBean' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.080  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.084  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy89] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.095  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConfiguration$$EnhancerBySpringCGLIB$$df234182] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.110  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.118  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration$RedisConnectionConfiguration$$EnhancerBySpringCGLIB$$2d7ae304] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.183  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.227  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.260  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userServiceImpl' of type [com.summer.icore.serviceImpl.UserServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.293  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jwtRealm' of type [com.summer.isnow.shior.JWTShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.311  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dbShiroRealm' of type [com.summer.isnow.shior.DbShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.680  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionStorageEvaluator' of type [org.apache.shiro.web.mgt.DefaultWebSessionStorageEvaluator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.684  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'subjectDAO' of type [org.apache.shiro.mgt.DefaultSubjectDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.688  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'subjectFactory' of type [org.apache.shiro.web.mgt.DefaultWebSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.693  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'rememberMeCookieTemplate' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.699  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'rememberMeManager' of type [org.apache.shiro.web.mgt.CookieRememberMeManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.707  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authenticator' of type [org.apache.shiro.authc.pam.ModularRealmAuthenticator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.712  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizer' of type [org.apache.shiro.authz.ModularRealmAuthorizer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.718  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.ServletContainerSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.730  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.754  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.762  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$e292f213] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.805  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$d706b6b7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.832  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.843  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManagerCustomizers' of type [org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.847  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration$$EnhancerBySpringCGLIB$$87985311] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.873  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:31.984  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManager' of type [org.springframework.data.redis.cache.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:32.005  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:32.033  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9980bbf5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:32.105  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroFilterChainDefinition' of type [org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:32.107  INFO 7452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.shiro.spring.config.web.autoconfigure.ShiroWebFilterConfiguration' of type [org.apache.shiro.spring.config.web.autoconfigure.ShiroWebFilterConfiguration$$EnhancerBySpringCGLIB$$3a05f46] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-12 22:03:32.557  INFO 7452 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8082 (http)
+2019-05-12 22:03:32.567  INFO 7452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-12 22:03:32.569  INFO 7452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-05-12 22:03:32.876  INFO 7452 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-12 22:03:32.883  INFO 7452 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/snow]   : Initializing Spring embedded WebApplicationContext
+2019-05-12 22:03:32.884  INFO 7452 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7454 ms
+2019-05-12 22:03:33.389  INFO 7452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-12 22:03:33.390  INFO 7452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'simpleCORSFilter' to urls: [/*]
+2019-05-12 22:03:33.390  INFO 7452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springShiroFilter' to: [/*]
+2019-05-12 22:03:33.390  INFO 7452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-05-12 22:03:33.390  INFO 7452 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-12 22:03:34.504  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/async],methods=[GET]}" onto public java.util.concurrent.Callable<com.summer.icore.model.User> com.summer.isnow.api.AsyncRequestController.doAsync()
+2019-05-12 22:03:34.511  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/404],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.summer.isnow.handler.HttpErrorHandler.errorHtml404(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-12 22:03:34.513  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/404]}" onto public org.springframework.http.ResponseEntity<com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String, java.lang.Object>>> com.summer.isnow.handler.HttpErrorHandler.error404(javax.servlet.http.HttpServletRequest)
+2019-05-12 22:03:34.513  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/500]}" onto public org.springframework.http.ResponseEntity<com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String, java.lang.Object>>> com.summer.isnow.handler.HttpErrorHandler.error500(javax.servlet.http.HttpServletRequest)
+2019-05-12 22:03:34.515  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/500],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.summer.isnow.handler.HttpErrorHandler.errorHtml500(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-12 22:03:34.516  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2019-05-12 22:03:34.522  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-05-12 22:03:34.522  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-05-12 22:03:34.523  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-05-12 22:03:35.593  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ec166e: startup date [Sun May 12 22:03:25 CST 2019]; root of context hierarchy
+2019-05-12 22:03:35.604  INFO 7452 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Detected ResponseBodyAdvice bean in responseHeaderAdvice
+2019-05-12 22:03:35.830  INFO 7452 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in restExceptionHandler
+2019-05-12 22:03:35.830  INFO 7452 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected ResponseBodyAdvice implementation in responseHeaderAdvice
+2019-05-12 22:03:37.187  INFO 7452 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-05-12 22:03:38.060  INFO 7452 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-05-12 22:03:38.062  INFO 7452 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-05-12 22:03:38.070  INFO 7452 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-05-12 22:03:38.080  INFO 7452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-12 22:03:38.104  INFO 7452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found {0} custom documentation plugin(s)
+2019-05-12 22:03:38.113  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-12 22:03:38.142  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 22:03:38.145  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: doAsync belongs to groups: [[ResourceGroup{groupName='async-request-controller', position=0, controller=com.summer.isnow.api.AsyncRequestController}]] 
+2019-05-12 22:03:38.147  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.147  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: errorHtml404 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 22:03:38.148  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.148  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: error404 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 22:03:38.148  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.148  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: error500 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 22:03:38.149  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.149  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: errorHtml500 belongs to groups: [[ResourceGroup{groupName='http-error-handler', position=0, controller=com.summer.isnow.handler.HttpErrorHandler}]] 
+2019-05-12 22:03:38.154  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/http-error-handler Description: http-error-handler Position: 0
+2019-05-12 22:03:38.156  INFO 7452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/async-request-controller Description: async-request-controller Position: 0
+2019-05-12 22:03:38.183  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.184  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.189  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.189  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.203  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.204  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.207  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icore.model.User(true)
+2019-05-12 22:03:38.207  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icore.model.User(true)
+2019-05-12 22:03:38.244  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.244  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key java.util.concurrent.Callable<com.summer.icore.model.User>(true)
+2019-05-12 22:03:38.246  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icore.model.User(true)
+2019-05-12 22:03:38.246  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icore.model.User(true)
+2019-05-12 22:03:38.250  INFO 7452 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /api/async.com.summer.isnow.api.AsyncRequestController.doAsync.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.251  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /api/async.com.summer.isnow.api.AsyncRequestController.doAsync.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.260  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 22:03:38.264  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method doAsync was async-request-controller
+2019-05-12 22:03:38.291  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.292  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.292  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.292  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.297  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.297  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.298  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.299  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.300  INFO 7452 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/404.com.summer.isnow.handler.HttpErrorHandler.error404.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.301  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/404.com.summer.isnow.handler.HttpErrorHandler.error404.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.302  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.303  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.304  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.305  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.306  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.307  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.308  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.309  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.311  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.313  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.314  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.314  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.315  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.318  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.319  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.321  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error404 was http-error-handler
+2019-05-12 22:03:38.322  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.323  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.323  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.323  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key com.summer.icommon.utils.ResponseModel<java.util.Map<java.lang.String,java.lang.Object>>(true)
+2019-05-12 22:03:38.324  INFO 7452 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/500.com.summer.isnow.handler.HttpErrorHandler.error500.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.324  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/500.com.summer.isnow.handler.HttpErrorHandler.error500.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.325  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.325  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.326  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.328  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.329  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.330  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.332  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.334  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.336  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.337  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.338  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.339  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.339  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.340  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.341  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.342  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method error500 was http-error-handler
+2019-05-12 22:03:38.343  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.343  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.346  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.347  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.355  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.356  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.356  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.356  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.356  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.357  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.358  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.358  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.358  INFO 7452 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/404.com.summer.isnow.handler.HttpErrorHandler.errorHtml404.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.359  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/404.com.summer.isnow.handler.HttpErrorHandler.errorHtml404.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.360  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.360  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.361  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.362  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.363  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.364  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.365  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.366  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.368  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.369  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.370  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.371  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.372  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.372  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.373  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.373  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml404 was http-error-handler
+2019-05-12 22:03:38.374  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.375  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.375  INFO 7452 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.375  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key org.springframework.web.servlet.ModelAndView(true)
+2019-05-12 22:03:38.376  INFO 7452 --- [main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.376  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key org.springframework.web.servlet.View(true)
+2019-05-12 22:03:38.377  INFO 7452 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /error/500.com.summer.isnow.handler.HttpErrorHandler.errorHtml500.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.377  INFO 7452 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /error/500.com.summer.isnow.handler.HttpErrorHandler.errorHtml500.DefaultGenericTypeNamingStrategy
+2019-05-12 22:03:38.377  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.378  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.379  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.380  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.380  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.381  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.381  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.382  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.383  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.385  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.385  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.386  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.387  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.387  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.388  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.388  INFO 7452 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method errorHtml500 was http-error-handler
+2019-05-12 22:03:38.460  INFO 7452 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8082 (http)
+2019-05-12 22:03:38.465 ERROR 7452 --- [main] com.summer.isnow.ISnowApplication        : 启动完成！
+2019-05-12 22:03:38.467  INFO 7452 --- [main] com.summer.isnow.ISnowApplication        : Started ISnowApplication in 13.691 seconds (JVM running for 14.77)

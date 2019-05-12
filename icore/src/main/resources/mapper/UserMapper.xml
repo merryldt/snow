@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.summer.icore.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.summer.icore.model.User">
+		<result column="id" property="id"/>
+		<result column="head_photo" property="headPhoto"/>
+		<result column="gender" property="gender"/>
+		<result column="phone" property="phone"/>
+		<result column="password" property="password"/>
+		<result column="nick_name" property="nickName"/>
+		<result column="province" property="province"/>
+		<result column="city" property="city"/>
+		<result column="country" property="country"/>
+		<result column="login_time" property="loginTime"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="status" property="status"/>
+		<result column="session_key" property="sessionKey"/>
+		<result column="salt" property="salt"/>
+		<result column="name" property="username"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,head_photo,gender,phone,password,nick_name,province,city,country,login_time,create_time,update_time,status,session_key,salt,name
+	</sql>
+	<select id="getUserInfo" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from user
+		<where>
+			<if test="userName">
+				name = #{userName}
+			</if>
+		</where>
+	</select>
+</mapper>
