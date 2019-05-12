@@ -41,6 +41,7 @@
     <logger name="com.summer" level="DEBUG" addictivity="true">
         <appender-ref ref="FILE" />
     </logger>
+	<!-- 配置项用处,设置这个项目下,日志级别为debug (引用以上日志配置)  -->
     <root level="info">
         <appender-ref ref="console" />
         <appender-ref ref="FILE" />
