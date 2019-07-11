@@ -11,5 +11,6 @@ public interface UserService extends IService<User> {
     public void deleteLoginInfo(String username);
     public User getUserInfo(String userName);
     public List<String> getUserRoles(Long userId);
+    User getUserByName(String userName);
 
 }

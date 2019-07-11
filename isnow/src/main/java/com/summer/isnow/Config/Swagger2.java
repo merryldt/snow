@@ -1,13 +1,14 @@
-package com.summer.isnow.Config;
+package com.summer.isnow.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-public class Swagger2 {
+public class Swagger2  {
 
   @Value("${swagger.show}")
   private boolean swaggerShow;
@@ -44,4 +45,5 @@ public class Swagger2 {
     return new ApiInfoBuilder().title("summer apis").description("restful api")
         .termsOfServiceUrl("https://www.summere.com").version("1.0").build();
   }
+
 }

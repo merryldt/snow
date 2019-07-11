@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.summer.icore.dao.UserAdminRoleRelationMapper">
+<resultMap id="BaseResultMap" type="com.summer.icore.model.UserAdminRoleRelation">
+
+	<id column="id" property="id"/>
+	<result column="admin_id" property="adminId"/>
+	<result column="role_id" property="roleId"/>
+	<result column="create_time" property="createTime"/>
+	<result column="update_time" property="updateTime"/>
+	<result column="status" property="status"/>
+</resultMap>
+<sql id="Base_Column_List">
+	id,admin_id,role_id,create_time,update_time,status
+</sql>
+	<select id="getUserAdminRoles" parameterType="integer" resultType="string">
+          select group_concat(role_id)  as role_id from  user_admin_role_relation uarr
+          <where>
+			  <if test=" userId != null and userId != ''">
+				  uarr.admin_id = #{userId}
+			  </if>
+		  </where>
+		GROUP BY admin_id
+	</select>
+</mapper>

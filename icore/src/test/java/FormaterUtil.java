@@ -42,17 +42,24 @@ public class FormaterUtil<T> {
             return "DECIMAL";
         }
     }
-
+//    public static void main(String[] args) throws ParserConfigurationException {
+//       createXml("H:\\myself\\snow\\snow\\icore\\src\\main\\resources\\mapper\\UserAdminMapper.xml",
+//               "H:\\myself\\snow\\snow\\icore\\src\\main\\resources\\mapper\\UserAdminMapper.xml",
+//               UserAdmin.class,
+//               "user_member",
+//               "s_user_member",
+//               "com.summer.icore.",
+//               "com.summer.icore.model");
+//    }
     public static void main(String[] args) throws ParserConfigurationException {
-       createXml("D:\\k\\todo\\summer\\icore\\src\\main\\resources\\mapper\\WxUserMapper.xml",
-               "D:\\k\\todo\\summer\\icore\\src\\main\\resources\\mapper\\WxUserMapper.xml",
-               Class.class,
-               "wx_user",
-               "t_wx_user",
-               "com.summer.icore.dao",
-               "com.summer.icore.model");
+        createXml("D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\UserRolePermissionRelationMapper.xml",
+                "D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\UserRolePermissionRelationMapper.xml",
+                UserRolePermissionRelation.class,
+                "user_role_permission_relation",
+                "s_user_role_permission_relation",
+                "com.summer.icore.",
+                "com.summer.icore.model");
     }
-
     /**
      * @param <T>
      * @param fileName          mapper.xml目标文件
@@ -68,15 +75,12 @@ public class FormaterUtil<T> {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         DocumentBuilder builder = factory.newDocumentBuilder();
-
         Document document = builder.newDocument();
 
-
         //mapper.xml头与根节点
-        Element root = document.createElement("Mapper");
-        root.setAttribute("namespace", mapperPackageName + "." + entityName + "Mapper");
+        Element root = document.createElement("mapper");
+        root.setAttribute("namespace", mapperPackageName + "dao"+"." + entityName + "Mapper");
         document.appendChild((Node) root);
-
         //resultMap节点
         Element resultMap = (Element) document.createElement("resultMap");
         resultMap.setAttribute("id", "BaseResultMap");
@@ -87,7 +91,12 @@ public class FormaterUtil<T> {
         for (Field field : fields) {
             if (!field.getName().equalsIgnoreCase("serialVersionUID")) {
                 String fieldName = field.getName();
-                Element result = (Element) document.createElement("result");
+                Element result=null;
+                if(fieldName.equals("id")){
+                    result=(Element) document.createElement("id");
+                }else {
+                    result = (Element) document.createElement("result");
+                }
                 result.setAttribute("column", convertPropertyToColmun(fieldName));
                 result.setAttribute("property", fieldName);
                 resultMap.appendChild(document.createTextNode("\n\t"));
@@ -169,7 +178,7 @@ public class FormaterUtil<T> {
 
             /* 生成mapper和dao*/
             createMapper(fileName, entityClass, mapperPackageName);
-          createService(fileName, entityClass, mapperPackageName);
+            createService(fileName, entityClass, mapperPackageName);
             createServiceImpl(fileName, entityClass, mapperPackageName);
 //            createDao(fileName, entityClass, mapperPackageName);
         } catch (TransformerConfigurationException e) {
@@ -194,53 +203,53 @@ public class FormaterUtil<T> {
 
     }
 
-    
+
 
     public static <T> void createMapper(String fileName, Class<T> entityClass,String mapperPackageName) throws FileNotFoundException{
-    	fileName = StringUtils.substringBefore(fileName, "\\Mapper");
-    	fileName = fileName+"\\Mapper\\"+entityClass.getSimpleName()+"Mapper.java";
-    	StringBuilder mapperFile = new StringBuilder("package "+mapperPackageName+";");
-    	mapperFile.append("\n");
-    	mapperFile.append("import com.baomidou.mybatisplus.mapper.BaseMapper;");
-    	mapperFile.append("\n");
-    	mapperFile.append("import "+entityClass.getPackage().getName()+"."+entityClass.getSimpleName()+";");
-    	mapperFile.append("\n");
-    	mapperFile.append("public interface "+entityClass.getSimpleName()+ "Mapper" +" extends BaseMapper<"+entityClass.getSimpleName()+"> {");
-    	mapperFile.append("\n");
-    	mapperFile.append("}");
-    	
-    	PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileName)),true); 
-		pw.println(mapperFile.toString());  
+        fileName = StringUtils.substringBefore(fileName, "\\resources");
+        fileName = fileName+"\\java\\com\\summer\\icore\\dao\\"+entityClass.getSimpleName()+"Mapper.java";
+        StringBuilder mapperFile = new StringBuilder("package "+mapperPackageName+"dao"+";");
+        mapperFile.append("\n");
+        mapperFile.append("import com.baomidou.mybatisplus.mapper.BaseMapper;");
+        mapperFile.append("\n");
+        mapperFile.append("import "+entityClass.getPackage().getName()+"."+entityClass.getSimpleName()+";");
+        mapperFile.append("\n");
+        mapperFile.append("public interface "+entityClass.getSimpleName()+ "Mapper" +" extends BaseMapper<"+entityClass.getSimpleName()+"> {");
+        mapperFile.append("\n");
+        mapperFile.append("}");
+
+        PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileName)),true);
+        pw.println(mapperFile.toString());
     }
-    
+
 
     //创建接口
     public  static <T> void createService(String fileName, Class<T> entityClass,String mapperPackageName) throws FileNotFoundException{
 
-    	fileName = StringUtils.substringBefore(fileName, "\\Mapper");
-    	fileName = fileName+"\\Mapper\\"+entityClass.getSimpleName()+"Service.java";
+        fileName = StringUtils.substringBefore(fileName, "\\resources");
+        fileName = fileName+"\\java\\com\\summer\\icore\\service\\"+entityClass.getSimpleName()+"Service.java";
         String daoPackageFileName = StringUtils.substringBefore(mapperPackageName, ".Mapper");
-    	StringBuilder daoFile = new StringBuilder("package "+mapperPackageName+";");
-    	daoFile.append("\n");
-    	daoFile.append("import com.baomidou.mybatisplus.service.IService;");
-    	daoFile.append("\n");
-    	daoFile.append("import "+entityClass.getPackage().getName()+"."+entityClass.getSimpleName()+";");
-    	daoFile.append("\n");
-    	daoFile.append("public interface "+entityClass.getSimpleName()+"Service extends IService<"+entityClass.getSimpleName()+"> {");
-    	daoFile.append("\n");
-    	daoFile.append("}");
+        StringBuilder daoFile = new StringBuilder("package "+mapperPackageName+"service"+";");
+        daoFile.append("\n");
+        daoFile.append("import com.baomidou.mybatisplus.service.IService;");
+        daoFile.append("\n");
+        daoFile.append("import "+entityClass.getPackage().getName()+"."+entityClass.getSimpleName()+";");
+        daoFile.append("\n");
+        daoFile.append("public interface "+entityClass.getSimpleName()+"Service extends IService<"+entityClass.getSimpleName()+"> {");
+        daoFile.append("\n");
+        daoFile.append("}");
 
-    	PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileName)),true);
-		pw.println(daoFile.toString());
+        PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileName)),true);
+        pw.println(daoFile.toString());
 
     }
     //创建接口的实现类
     public  static <T> void createServiceImpl(String fileName, Class<T> entityClass,String mapperPackageName) throws FileNotFoundException{
 
-        fileName = StringUtils.substringBefore(fileName, "\\Mapper");
-        fileName = fileName+"\\Mapper\\"+entityClass.getSimpleName()+"ServiceImpl.java";
+        fileName = StringUtils.substringBefore(fileName, "\\resources");
+        fileName = fileName+"\\java\\com\\summer\\icore\\serviceImpl\\"+entityClass.getSimpleName()+"ServiceImpl.java";
         String daoPackageFileName = StringUtils.substringBefore(mapperPackageName, ".Mapper");
-        StringBuilder daoFile = new StringBuilder("package "+mapperPackageName+";");
+        StringBuilder daoFile = new StringBuilder("package "+mapperPackageName+"serviceImpl"+";");
         daoFile.append("\n");
         daoFile.append("import com.baomidou.mybatisplus.service.impl.ServiceImpl;");
         daoFile.append("\n");
@@ -262,28 +271,4 @@ public class FormaterUtil<T> {
         pw.println(daoFile.toString());
 
     }
-//
-//    public  static <T> void createDao(String fileName, Class<T> entityClass,String mapperPackageName) throws FileNotFoundException{
-//
-//    	fileName = StringUtils.substringBefore(fileName, "\\mapper");
-//    	fileName = fileName+"\\mapper\\"+entityClass.getSimpleName()+"Dao.java";
-//    	String daoPackageFileName = StringUtils.substringBefore(mapperPackageName, ".mapper");
-//    	StringBuilder daoFile = new StringBuilder("package "+daoPackageFileName+".dao;");
-//    	daoFile.append("\n");
-//    	daoFile.append("import com.autozi.o2o.wxby.framework.base.dao.MyBatisDao;");
-//    	daoFile.append("\n");
-//    	daoFile.append("import "+entityClass.getPackage().getName()+"."+entityClass.getSimpleName()+";");
-//    	daoFile.append("\n");
-//    	daoFile.append("import org.springframework.stereotype.Component;");
-//    	daoFile.append("\n");
-//    	daoFile.append("@Component");
-//    	daoFile.append("\n");
-//    	daoFile.append("public class "+entityClass.getSimpleName()+"Dao extends MyBatisDao<"+entityClass.getSimpleName()+"> {");
-//    	daoFile.append("\n");
-//    	daoFile.append("}");
-//
-//    	PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileName)),true);
-//		pw.println(daoFile.toString());
-//
-//    }
 }

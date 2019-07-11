@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.summer.icore.dao.UserPermissionMapper">
+	<resultMap id="BaseResultMap" type="com.summer.icore.model.UserPermission">
+		<id column="id" property="id"/>
+		<result column="pid" property="pid"/>
+		<result column="name" property="name"/>
+		<result column="value" property="value"/>
+		<result column="icon" property="icon"/>
+		<result column="type" property="type"/>
+		<result column="uri" property="uri"/>
+		<result column="status" property="status"/>
+		<result column="create_time" property="createTime"/>
+		<result column="sort" property="sort"/>
+		<result column=" category" property="category"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,pid,name,value,icon,type,uri,status,create_time,sort
+	</sql>
+	<sql id="t_Base_Column_List">
+		t.id,t.pid,t.name,t.value,t.icon,t.type,t.uri,t.status,t.create_time,t.sort
+	</sql>
+	<insert id="insertAuthorities" parameterType="List">
+		INSERT INTO
+		user_role_permission_relation(role_id, permission_id)
+		VALUES
+		<foreach collection="list" separator="," item="item">
+			(#{item.roleId}, #{item.permissionId})
+		</foreach>
+	</insert>
+	<update id="updatePermissions" parameterType="com.summer.icore.model.UserPermission">
+		<foreach collection="list" separator=";" item="item">
+			UPDATE
+			user_permission
+			SET
+			permission = #{item.permission}
+			WHERE
+			id = #{item.id}
+		</foreach>
+	</update>
+
+	<select id="findAuthorities" resultMap="BaseResultMap">
+		SELECT up.*,ur.category from user_permission up
+		LEFT JOIN user_role_permission_relation urpr
+		on up.id = urpr.permission_id
+		LEFT JOIN user_role ur
+		on urpr.role_id = ur.id
+	</select>
+	<select id="findAuthoritiesByRoleId" parameterType="Integer" resultMap="BaseResultMap">
+		SELECT
+		<include refid="t_Base_Column_List" />
+		FROM
+		user_role_permission_relation t1
+		INNER JOIN user_permission t on t1.permission_id = t.id
+		WHERE t1.role_id = #{roleId}
+	</select>
+	<select id="findAuthoritiesByIds" parameterType="List" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		user_permission
+		WHERE
+		id IN
+		<foreach collection="list" open="(" separator="," close=")" item="item">
+			#{item}
+		</foreach>
+	</select>
+</mapper>

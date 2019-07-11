@@ -15,7 +15,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>snow</name>
 
-    <description>Demo project for Spring Boot</description>
+    <description>snow is chang</description>
 
     <modules>
         <module>icommon</module>
@@ -36,85 +36,87 @@
         <netty.version>3.10.6.Final</netty.version>
         <shiro.spring.version>1.4.0</shiro.spring.version>
         <jwt.auth0.version>3.2.0</jwt.auth0.version>
+        <shiro-redis.version>3.2.3</shiro-redis.version>
+        <shiro.redis.spring.boot.starter.version>3.2.1</shiro.redis.spring.boot.starter.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <redis.clients.version>2.9.0</redis.clients.version>
+        <lombok.version>1.18.6</lombok.version>
+        <slf4j.log4j12.version>1.7.21</slf4j.log4j12.version>
+        <springfox.swagger.ui.version>2.8.0</springfox.swagger.ui.version>
+        <springfox.swagger2.version>2.8.0</springfox.swagger2.version>
+        <mybatis.plus.version>2.1.9</mybatis.plus.version>
+        <druid.version>1.0.26</druid.version>
+        <mysql.version>5.1.21</mysql.version>
+        <org.mybatis.spring.boot.version>1.2.0</org.mybatis.spring.boot.version>
+        <org.bouncycastle.version>1.46</org.bouncycastle.version>
+        <org.codehaus.xfire.version>1.2.6</org.codehaus.xfire.version>
+        <com.google.code.gson.version>2.8.2</com.google.code.gson.version>
+        <cn.hutool.version>4.5.10</cn.hutool.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-starter-web</artifactId>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-                <!--<scope>provided</scope>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-starter-test</artifactId>-->
-                <!--<scope>test</scope>-->
-            <!--</dependency>-->
             <!-- mybatis-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>1.2.0</version>
+                <version>${org.mybatis.spring.boot.version}</version>
             </dependency>
             <!-- mysql-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.21</version>
+                <version>${mysql.version}</version>
             </dependency>
             <!-- druid阿里巴巴数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>1.0.26</version>
+                <version>${druid.version}</version>
             </dependency>
             <!-- MP 核心库 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
-                <version>2.1.9</version>
+                <version>${mybatis.plus.version}</version>
             </dependency>
 
             <!-- fastjson阿里巴巴jSON处理器 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.31</version>
+                <version>${fastjson.version}</version>
             </dependency>
-            <!-- swagger -->
+            <!-- swagger2 -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
-                <version>2.2.2</version>
+                <version>${springfox.swagger2.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
-                <version>2.2.2</version>
+                <version>${springfox.swagger.ui.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-staticdocs</artifactId>
-                <version>2.2.2</version>
-                <scope>test</scope>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>io.springfox</groupId>-->
+                <!--<artifactId>springfox-staticdocs</artifactId>-->
+                <!--<version>2.2.2</version>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
             <!---Log -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.21</version>
+                <version>${slf4j.log4j12.version}</version>
             </dependency>
             <!--lombok -->
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.6</version>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
@@ -133,15 +135,64 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
+
+            <!--redis-->
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
+                <!--<version>2.1.5.RELEASE</version>-->
+            <!--</dependency>-->
+            <!--shior和jwt-->
+            <dependency>
+                <groupId>org.crazycake</groupId>
+                <artifactId>shiro-redis-spring-boot-starter</artifactId>
+                <version>${shiro.redis.spring.boot.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.crazycake</groupId>
+                <artifactId>shiro-redis</artifactId>
+                <version>${shiro-redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.auth0.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring-boot-web-starter</artifactId>
                 <version>${shiro.spring.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.auth0</groupId>
-                <artifactId>java-jwt</artifactId>
-                <version>${jwt.auth0.version}</version>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.clients.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+            </dependency>
+            <!--weixin小程序解密 -->
+            <dependency>
+                <groupId>org.codehaus.xfire</groupId>
+                <artifactId>xfire-core</artifactId>
+                <version>${org.codehaus.xfire.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk16</artifactId>
+                <version>${org.bouncycastle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${com.google.code.gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${cn.hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

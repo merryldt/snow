@@ -29,55 +29,63 @@ public class User  extends Model<User> {
 	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
 
-	@TableField("head_photo")
-	private String headPhoto;
+	@TableField("salt")
+	private String salt;
 
-	@TableField("gender")
-	private String gender;
+	@ApiModelProperty()
+	@TableField("member_level_id")
+	private Integer memberLevelId;
 
-	@TableField("phone")
-	private String phone;
+	@ApiModelProperty()
+	@TableField("user_name")
+	private String userName;
 
-	@TableField("password")
-	private byte[] password;
+	private String password;
 
+	@ApiModelProperty()
 	@TableField("nick_name")
 	private String nickName;
 
-	@TableField("province")
-	private String province;
+	private String phone;
 
-	@TableField("city")
-	private String city;
+	private Integer status;
 
-	@TableField("country")
-	private String country;
-
-	@TableField(value = "login_time")
-	private Date loginTime;
-
-	@TableField(value = "create_time")
+	@ApiModelProperty()
+	@TableField("create_time")
 	private Date createTime;
 
-	@TableField(value = "update_time")
+	@ApiModelProperty()
+	@TableField("update_time")
 	private Date updateTime;
 
-	@TableField("status")
-	private Integer status;
-	@TableField("session_key")
-	private String sessionKey;
+	private String icon;
 
-	@TableField("salt")
-	private String salt;
-	@TableField(exist = false)
-	private String pass;
-	@TableField(exist = false)
-	private String encryptPwd;
+	private String gender;
 
-	@TableField(exist = false)
-	private List<String> roles;
+	private Date birthday;
 
-	@TableField("name")
-	private String username;
+	private String city;
+
+	private String job;
+
+	@ApiModelProperty()
+	@TableField("personalized_signature")
+	private String personalizedSignature;
+
+	@ApiModelProperty()
+	@TableField("source_type")
+	private Integer sourceType;
+
+	private Integer integration;
+
+	private Integer growth;
+
+	@ApiModelProperty()
+	@TableField("luckey_count")
+	private Integer luckeyCount;
+
+	@ApiModelProperty()
+	@TableField("history_integration")
+	private Integer historyIntegration;
 
 }

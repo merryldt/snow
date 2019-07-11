@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.bouncycastle.crypto.tls.SignatureAlgorithm;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
@@ -32,6 +33,7 @@ public class JwtUtils {
     public static String getUsername(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
+            System.out.println("username"+jwt.getClaim("username").asString());
             return jwt.getClaim("username").asString();
         } catch (JWTDecodeException e) {
             return null;
@@ -45,15 +47,18 @@ public class JwtUtils {
      * @return 加密的token
      */
     public static String sign(String username, String salt, long time) {
+        // 指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。
+
         try {
             Date date = new Date(System.currentTimeMillis()+time*1000);
             Algorithm algorithm = Algorithm.HMAC256(salt);
             // 附带username信息
             return JWT.create()
-                    .withClaim("username", username)
-                    .withExpiresAt(date)
-                    .withIssuedAt(new Date())
-                    .sign(algorithm);
+//                    .withJWTId("1") //// 设置jti(JWT ID)：是JWT的唯一标识，根据业务需要，这个可以设置为一个不重复的值，主要用来作为一次性token,从而回避重放攻击。
+                    .withClaim("username", username)  /** token添加自定义属性 **/
+                    .withExpiresAt(date) //设置过期时间-一分钟
+                    .withIssuedAt(new Date())  //登录时间-也就是签发时间（签发给你token的时间）
+                    .sign(algorithm); //设置签名秘钥
         } catch (UnsupportedEncodingException e) {
             return null;
         }

@@ -42,7 +42,15 @@
     <logger name="com.summer" level="DEBUG" addictivity="true">
         <appender-ref ref="FILE" />
     </logger>
-
+    <logger name="org.springframework.jdbc" level="debug">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="org.springframework.web" level="debug">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="com.vsi.springboot" level="debug">
+        <appender-ref ref="console"/>
+    </logger>
     <root level="info">
         <appender-ref ref="console" />
         <appender-ref ref="FILE" />

@@ -2,6 +2,8 @@ package com.summer.isnow.shior;
 
 import com.summer.icommon.utils.JwtUtils;
 import com.summer.icore.model.User;
+import com.summer.icore.model.UserAdmin;
+import com.summer.icore.serviceImpl.UserAdminServiceImpl;
 import com.summer.icore.serviceImpl.UserServiceImpl;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -13,17 +15,22 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class JWTShiroRealm extends AuthorizingRealm {
     private final Logger log = LoggerFactory.getLogger(JWTShiroRealm.class);
 
     protected UserServiceImpl userService;
+    @Autowired
+    protected UserAdminServiceImpl userAdminService;
 
-    public JWTShiroRealm(UserServiceImpl userService){
-        this.userService = userService;
+//    public JWTShiroRealm(UserServiceImpl userService){
+//        this.userService = userService;
+//        this.setCredentialsMatcher(new JWTCredentialsMatcher());
+//    }
+    public JWTShiroRealm(){
         this.setCredentialsMatcher(new JWTCredentialsMatcher());
     }
-
     @Override
     public boolean supports(AuthenticationToken token) {
         return token instanceof JWTToken;
@@ -37,8 +44,9 @@ public class JWTShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
         JWTToken jwtToken = (JWTToken) authcToken;
         String token = jwtToken.getToken();
-
-        User user = userService.getJwtTokenInfo(JwtUtils.getUsername(token));
+        String username = JwtUtils.getUsername(token);
+        System.out.println("suername ;====="+username);
+        UserAdmin user = userAdminService.getJwtTokenInfo(username);
         if(user == null)
             throw new AuthenticationException("token过期，请重新登录");
 
@@ -49,6 +57,7 @@ public class JWTShiroRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        System.out.println(principals + "进行授权操作");
         return new SimpleAuthorizationInfo();
     }
 }

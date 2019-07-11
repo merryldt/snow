@@ -22,17 +22,17 @@ import java.sql.SQLException;
  * 获取到系统环境变量和application配置文件中的变量。
  *
  * 还有一种方式是采用注解的方式获取
+ * @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
  * @value("${变量的key值}") ：获取application配置文件中的变量。
  *
  */
 @Configuration
-// 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
 @EnableTransactionManagement
 public class DruidDataSourceConfigSecond implements EnvironmentAware {
 
 	private RelaxedPropertyResolver resolver;
 	private static Logger logger = LoggerFactory.getLogger(DruidDataSourceConfigSecond.class);
-
+    @Override
 	public void setEnvironment(Environment env) {
 		this.resolver = new RelaxedPropertyResolver(env, "spring.datasource.");
 	}
@@ -60,6 +60,7 @@ public class DruidDataSourceConfigSecond implements EnvironmentAware {
 			datasource.setFilters("stat,wall");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error("e++ {} :", e);
 		}
 		return datasource;
 	}

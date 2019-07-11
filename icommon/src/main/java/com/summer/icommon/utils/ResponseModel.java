@@ -9,7 +9,7 @@ public class ResponseModel<T> implements Serializable {
    */
   private static final long serialVersionUID = 1L;
   private int code;
-  private String msg;
+  private String message;
   private T data;
   private int count;
   private T parent;
@@ -30,37 +30,41 @@ public class ResponseModel<T> implements Serializable {
     // TODO Auto-generated constructor stub
   }
 
-  public ResponseModel(int code, String msg, T responseData) {
+  public ResponseModel(int code, String message, T responseData) {
     this.code = code;
-    this.msg = msg;
+    this.message= message;
     this.data = responseData;
   }
   
-  public ResponseModel(int code, String msg) {
+  public ResponseModel(int code, String message) {
 	    this.code = code;
-	    this.msg = msg;
+	    this.message = message;
 	  }
+
+  public static <T> ResponseModel<T> success(T data) {
+    return new ResponseModel<T>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), data);
+  }
   public ResponseModel(ResponseCode responseCode, T data,T data2) {
     this.code = responseCode.getCode();
-    this.msg = responseCode.getMsg();
+    this.message = responseCode.getMessage();
     this.data = data;
   }
   public ResponseModel(ResponseCode responseCode, T data,T data2,T parent) {
     this.code = responseCode.getCode();
-    this.msg = responseCode.getMsg();
+    this.message = responseCode.getMessage();
     this.data = data;
     this.parent = parent;
   }
   public ResponseModel(ResponseCode responseCode, T data) {
     this.code = responseCode.getCode();
-    this.msg = responseCode.getMsg();
+    this.message = responseCode.getMessage();
     this.data = data;
   }
 
 
   public ResponseModel(ResponseCode responseCode) {
 	    this.code = responseCode.getCode();
-	    this.msg = responseCode.getMsg();
+	    this.message = responseCode.getMessage();
 	    this.data = null;
 	  }
 
@@ -81,12 +85,12 @@ public class ResponseModel<T> implements Serializable {
     this.code = code;
   }
 
-  public String getMsg() {
-    return msg;
+  public String getMessage() {
+    return message;
   }
 
-  public void setMsg(String msg) {
-    this.msg = msg;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public T getData() {
@@ -101,8 +105,8 @@ public class ResponseModel<T> implements Serializable {
     return new ResponseModel<T>(responseCode, null);
   }
 
-  public static <T> ResponseModel<T> ERROR( String msg) {
-    return new ResponseModel<T>(ResponseCode.ERROR.getCode(), msg);
+  public static <T> ResponseModel<T> ERROR( String message) {
+    return new ResponseModel<T>(ResponseCode.ERROR.getCode(), message);
   }
   
   public static <T> ResponseModel<T> SUCCESS(){

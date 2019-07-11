@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.summer.icore.dao.UserRoleMapper">
+	<resultMap id="BaseResultMap" type="com.summer.icore.model.UserRole">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="description" property="description"/>
+		<result column="admin_count" property="adminCount"/>
+		<result column="create_time" property="createTime"/>
+		<result column="status" property="status"/>
+		<result column="sort" property="sort"/>
+		<result column="category" property="category"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,name,description,admin_count,create_time,status,sort,category
+	</sql>
+
+	<!--<select id="getRolesByPermission" resultMap="BaseResultMap" parameterType="int">-->
+          <!--select  ur.* from user_role ur-->
+          <!--left  join  user_role_permission_relation urpr-->
+          <!--on ur.ur-->
+	<!--</select>-->
+</mapper>

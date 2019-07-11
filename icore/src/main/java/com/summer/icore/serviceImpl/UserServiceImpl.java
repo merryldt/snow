@@ -6,11 +6,12 @@ import com.summer.icore.dao.UserMapper;
 import com.summer.icore.model.User;
 import com.summer.icore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户信息接口
@@ -18,9 +19,6 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
 
-
-	@Autowired
-	private StringRedisTemplate redisTemplate;
 
 	@Autowired
 	private UserMapper usermapper;
@@ -90,4 +88,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     	return Arrays.asList("admin");
     }
 
+	@Override
+	public User getUserByName(String userName) {
+		Map<String,Object> filters = new HashMap<>();
+		filters.put("user_name",userName);
+		return usermapper.selectByMap(filters).get(0);
+	}
 }

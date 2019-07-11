@@ -51,10 +51,10 @@ public class ResponseHeaderAdvice implements ResponseBodyAdvice<Object> {
         String allowMethods = "Access-Control-Allow-Methods";
         if(!response.containsHeader(allowMethods))
             response.setHeader(allowMethods, "GET,POST,OPTIONS,HEAD");
-
+        //这个很关键，要不然ajax调用时浏览器默认不会把这个token的头属性返给JS
         String exposeHeaders = "access-control-expose-headers";
         if(!response.containsHeader(exposeHeaders))
-            response.setHeader(exposeHeaders, "authToken");
+            response.setHeader(exposeHeaders, "token");
 
         return o;
     }
