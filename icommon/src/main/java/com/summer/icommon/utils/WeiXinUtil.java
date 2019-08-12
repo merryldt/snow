@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.summer.icommon.constant.AccessToken;
 import com.summer.icommon.constant.WxConstants;
+import com.summer.icommon.exception.GeneralException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -420,8 +421,23 @@ public class WeiXinUtil {
         authUrl = authUrl.replace("JSCODE", code);
         HttpUtil h = new HttpUtil();
         String  url=   h.sendGet(authUrl);
-        System.out.println("url"+url);
-        return url;
+        String openId = null;
+        JSONObject jsonObject = null;
+        if(StringUtil.isNull(url)){
+            try {
+                jsonObject = JSONObject.parseObject(url);
+                if(null != jsonObject){
+                    if(jsonObject.containsKey("openid")){
+                        openId = jsonObject.getString("openid");
+                    }else {
+                        logger.error(" errcode : {} , errmsg : {}",jsonObject.get("errcode"),jsonObject.getString("errmsg"));
+                    }
+                }
+            }catch (Exception e){
+                logger.error(" errcode : {} , errmsg : {}",jsonObject.get("errcode"),jsonObject.getString("errmsg"));
+            }
+        }
+        return openId;
     }
 
 

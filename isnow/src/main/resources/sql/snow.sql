@@ -168,3 +168,26 @@ CREATE TABLE `address` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
    PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='地址表';
+
+DROP TABLE IF EXISTS `wx_user`;
+CREATE TABLE `wx_user` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `icon` varchar(255) DEFAULT NULL COMMENT '用户头像地址',
+  `city` varchar(20) DEFAULT NULL COMMENT '所在城市',
+  `country` varchar(20) DEFAULT NULL COMMENT '所在国家',
+  `gender` varchar(20) DEFAULT NULL COMMENT '用户性别',
+  `is_follow` int(32) DEFAULT '0' COMMENT '是否已关注公众号 0；未关注 1：已关注',
+  `nick_name` varchar(30) DEFAULT NULL COMMENT '用户昵称',
+  `province` varchar(20) DEFAULT NULL COMMENT '所在省份',
+  `user_phone` varchar(20) DEFAULT NULL COMMENT '用户手机号',
+  `status` int(32) DEFAULT '0',
+  `wx_union_id` varchar(255) DEFAULT NULL COMMENT '微信unionId',
+  `open_id` varchar(255) DEFAULT NULL COMMENT '用户唯一id',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  `user_id` int(32) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='微信用户表';
+
+ALTER TABLE `user`
+ADD COLUMN `login_time`  datetime NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '登录时间' AFTER `salt`;

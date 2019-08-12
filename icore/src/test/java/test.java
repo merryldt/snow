@@ -12,12 +12,12 @@ public class test {
 
     public static  void main(String [] args){
                     //生成盐（部分，需要存入数据库中）
-                String salt=new SecureRandomNumberGenerator().nextBytes().toHex();
+                String salt=new SecureRandomNumberGenerator().nextBytes(16).toHex();
 //        System.out.println("2:"+random);
 //                //将原始密码加盐（上面生成的盐），并且用md5算法加密三次，将最后结果存入数据库中
 //        SecureRandomNumberGenerator secureRandomNumberGenerator=new SecureRandomNumberGenerator();
 //        String salt= secureRandomNumberGenerator.nextBytes().toHex();
-               String result = new Md5Hash("123456",ByteSource.Util.bytes(salt) ,1).toHex();
+               String result = new Md5Hash("123456","admin"+ByteSource.Util.bytes(salt) ,2).toHex();
         System.out.println("1:"+result+"22'"+salt);
 //
 //        String random=  JwtUtils.generateSalt();

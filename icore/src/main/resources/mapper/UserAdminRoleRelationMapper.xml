@@ -14,7 +14,9 @@
 	id,admin_id,role_id,create_time,update_time,status
 </sql>
 	<select id="getUserAdminRoles" parameterType="integer" resultType="string">
-          select group_concat(role_id)  as role_id from  user_admin_role_relation uarr
+		SELECT group_concat(ur.category) from user_admin_role_relation uarr
+		LEFT JOIN user_role ur
+		on uarr.role_id = ur.id
           <where>
 			  <if test=" userId != null and userId != ''">
 				  uarr.admin_id = #{userId}

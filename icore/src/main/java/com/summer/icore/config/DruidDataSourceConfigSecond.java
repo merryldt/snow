@@ -53,9 +53,9 @@ public class DruidDataSourceConfigSecond implements EnvironmentAware {
 		datasource.setPassword(resolver.getProperty("password"));
 		datasource.setInitialSize(Integer.valueOf(resolver.getProperty("initial-size")));
 		datasource.setMinIdle(Integer.valueOf(resolver.getProperty("min-idle")));
-		datasource.setMaxWait(Long.valueOf(resolver.getProperty("max-wait")));
-		datasource.setMaxActive(Integer.valueOf(resolver.getProperty("max-active")));
-		datasource.setMinEvictableIdleTimeMillis(Long.valueOf(resolver.getProperty("min-evictable-idle-time-millis")));
+//		datasource.setMaxWait(Long.valueOf(resolver.getProperty("max-wait")));
+//		datasource.setMaxActive(Integer.valueOf(resolver.getProperty("max-active")));
+//		datasource.setMinEvictableIdleTimeMillis(Long.valueOf(resolver.getProperty("min-evictable-idle-time-millis")));
 		try {
 			datasource.setFilters("stat,wall");
 		} catch (SQLException e) {

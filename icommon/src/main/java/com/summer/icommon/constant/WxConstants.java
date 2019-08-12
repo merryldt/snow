@@ -23,10 +23,14 @@ public  final  class WxConstants {
 //    /**
 //     * 微信小程序的信息
 //     */
-    public static final  String MINI_APPID = "";
-    public static final  String MINI_APPSECRET = "";
+    public static final  String MINI_APPID = "wxca921f2f1d5a59ca";
+    public static final  String MINI_APPSECRET = "5b3a5f97b228675cc38b5e14cd966fd3";
+
+//    public static final  String MINI_APPID = "wxd17d7a4613908cfa";
+//    public static final  String MINI_APPSECRET = "8c7f7b5047423afafbac27270a404605";
 //
 //    private WxConstants(){}
+
 
 
 }

@@ -78,7 +78,7 @@ public class MybatisPlusConfig {
     MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
     factoryBean.setDataSource(dataSource);
     factoryBean.setVfs(SpringBootVFS.class);
-//    if (StringUtils.hasText(this.properties.getConfigLocation())) {
+//    if (StringUtil.hasText(this.properties.getConfigLocation())) {
 //      factoryBean
 //          .setConfigLocation(this.resourceLoader.getResource(this.properties.getConfigLocation()));
 //    }
@@ -104,10 +104,10 @@ public class MybatisPlusConfig {
     if (this.databaseIdProvider != null) {
       factoryBean.setDatabaseIdProvider(this.databaseIdProvider);
     }
-//    if (StringUtils.hasLength(this.properties.getTypeAliasesPackage())) {
+//    if (StringUtil.hasLength(this.properties.getTypeAliasesPackage())) {
 //      factoryBean.setTypeAliasesPackage(this.properties.getTypeAliasesPackage());
 //    }
-//    if (StringUtils.hasLength(this.properties.getTypeHandlersPackage())) {
+//    if (StringUtil.hasLength(this.properties.getTypeHandlersPackage())) {
 //      factoryBean.setTypeHandlersPackage(this.properties.getTypeHandlersPackage());
 //    }
 //    if (!ObjectUtils.isEmpty(this.properties.resolveMapperLocations())) {

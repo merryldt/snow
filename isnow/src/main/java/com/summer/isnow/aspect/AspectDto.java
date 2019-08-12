@@ -1,6 +1,6 @@
 package com.summer.isnow.aspect;
 import com.google.gson.Gson;
-import com.summer.icommon.utils.StringUtils;
+import com.summer.icommon.utils.StringUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -54,7 +54,7 @@ public class AspectDto {
         Object args[] = joinPoint.getArgs();
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        logger.info("{}.{} 请求参数： {}" ,method.getDeclaringClass().getName(),method.getName(), StringUtils.join(args,":"));
+        logger.info("{}.{} 请求参数： {}" ,method.getDeclaringClass().getName(),method.getName(), StringUtil.join(args,":"));
     }
     @AfterReturning(value = "within(com.summer.isnow.api.*)",returning ="rvt")
     public void after(JoinPoint joinPoint,Object rvt){

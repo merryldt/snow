@@ -2,6 +2,8 @@ package com.summer.isnow.filter;
 
 import com.alibaba.fastjson.JSONObject;
 import com.summer.icommon.utils.ResponseModel;
+import com.sun.media.jfxmedia.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.http.HttpStatus;
 import org.apache.shiro.subject.Subject;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@Slf4j
 public class AnyRolesAuthorizationFilter extends AuthorizationFilter {
 	
 	@Override
@@ -30,15 +33,17 @@ public class AnyRolesAuthorizationFilter extends AuthorizationFilter {
         	return true;
         
         Subject subject = getSubject(servletRequest, servletResponse);
-
         String[] rolesArray = (String[]) mappedValue;
         if (rolesArray == null || rolesArray.length == 0) { //没有角色限制，有权限访问
             return true;
         }
         for (String role : rolesArray) {
-            if (subject.hasRole(role)) //若当前用户是rolesArray中的任何一个，则有权限访问
-                return true;
+            //若当前用户是rolesArray中的任何一个，则有权限访问
+            if (subject.hasRole(role))
+            {
+                return true;}
         }
+        log.error("没有权限");
         return false;
     }
 

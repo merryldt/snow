@@ -1,7 +1,10 @@
 package com.summer.icommon.utils;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.io.Serializable;
 import java.util.List;
+
 
 public class ResponseModel<T> implements Serializable {
   /**
@@ -10,13 +13,14 @@ public class ResponseModel<T> implements Serializable {
   private static final long serialVersionUID = 1L;
   private int code;
   private String message;
+
+  @JsonView(value = View.Base.class )
   private T data;
   private int count;
   private T parent;
   private String ans;
   private List<T> datas;
   private  Float score;
-
 
     public Float getScore() {
         return score;

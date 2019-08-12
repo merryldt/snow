@@ -1,9 +1,12 @@
 package com.summer.isnow.shior;
 
 
+import com.summer.icore.service.UserAdminService;
 import com.summer.icore.service.UserPermissionService;
+import com.summer.icore.serviceImpl.UserAdminServiceImpl;
 import com.summer.isnow.filter.AnyRolesAuthorizationFilter;
 import com.summer.isnow.filter.JwtAuthFilter;
+import com.summer.isnow.filter.ShiroPermissionsFilter;
 import com.summer.isnow.handler.MyExceptionHandler;
 import org.apache.shiro.authc.Authenticator;
 import org.apache.shiro.authc.pam.FirstSuccessfulStrategy;
@@ -33,6 +36,7 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import javax.servlet.Filter;
 import java.util.*;
@@ -50,15 +54,16 @@ public class ShiroConfig {
 
 
     @Bean(name = "shiroFilter")
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, UserPermissionService userService) throws Exception{
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, UserPermissionService userService,UserAdminServiceImpl userAdminService) throws Exception{
 
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
         Map<String,Filter> filterMap = new LinkedHashMap<>(3);
 //        filterMap.put("roles",rolesAuthorizationFilter());
         shiroFilter.setLoginUrl("/api/userAdmin/login");
-        filterMap.put("authc", createAuthFilter());
+        filterMap.put("authc", createAuthFilter(userAdminService));
         filterMap.put("anon", createRolesFilter());
+        filterMap.put("perms",createPermission());
 //        filterMap.put("anyRole", createRolesFilter());
 
         shiroFilter.setFilters(filterMap);
@@ -67,28 +72,88 @@ public class ShiroConfig {
          * anon：它对应的过滤器里面是空的,什么都没做,这里.do和.jsp后面的*表示参数,比方说login.jsp?main这种
          * authc：该过滤器下的页面必须验证后才能访问,它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter
          */
+   //     shiroFilter.setFilterChainDefinitionMap(userService.loadFilterChainDefinitions());
         shiroFilter.setFilterChainDefinitionMap(shiroFilterChainDefinition().getFilterChainMap());
-//        shiroFilter.setFilterChainDefinitionMap(userService.loadFilterChainDefinitions());
+
 
         return  shiroFilter;
     }
+    /**
+     * Redis集群使用RedisClusterManager，单个Redis使用RedisManager
+     * @param jedisPool
+     * @return
+     */
+    @Bean
+    public RedisManager redisManager() {
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(8);
+        poolConfig.setMaxIdle(8);
+        poolConfig.setMinIdle(1);
+        // 最大允许等待时间，如果超过这个时间还未获取到连接，则会报JedisException异常：
+        // Could not get a resource from the pool
+        poolConfig.setMaxWaitMillis(10000);
+        //创建redis连接池，把配置对象给她
+        JedisPool  jedisPool = new JedisPool(poolConfig, "47.100.2.226",6366,3600,"123456");
+        RedisManager redisManager = new RedisManager();
+        redisManager.setJedisPool(jedisPool);
+        return redisManager;
+    }
+    @Bean
+    public RedisCacheManager redisCacheManager(RedisManager redisManager) {
+        RedisCacheManager redisCacheManager = new RedisCacheManager();
+        redisCacheManager.setKeyPrefix(CACHE_KEY);
+         // new SimpleAuthenticationInfo(token, token, getName());  第一个token中独一无二的标志
+        //  这里用的是jwt的token,
+        redisCacheManager.setPrincipalIdFieldName("host");
+//        redisCacheManager.getCache("com.summer.isnow.shior.JWTShiroRealm.authorizationCache").clear();
+        redisCacheManager.setRedisManager(redisManager);
+        return redisCacheManager;
+    }
+
+    @Bean
+    public RedisSessionDAO redisSessionDAO(RedisManager redisManager) {
+        RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
+        redisSessionDAO.setKeyPrefix(SESSION_KEY);
+        redisSessionDAO.setRedisManager(redisManager);
+        return redisSessionDAO;
+    }
+//    @Bean
+//    public DefaultWebSessionManager sessionManager(RedisSessionDAO  redisSessionDAO) {
+//        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+//        sessionManager.setSessionDAO(redisSessionDAO);
+//        sessionManager.setSessionIdCookieEnabled(true);
+////        sessionManager.setSessionIdCookie(simpleCookie);
+//        //        sessionManager.setDeleteInvalidSessions(true);// 删除过期的session
+////        sessionManager.setSessionValidationSchedulerEnabled(true);// 是否定时检查session
+//        return sessionManager;
+//    }
+
+//    @Bean
+//    public SimpleCookie simpleCookie() {
+//        SimpleCookie simpleCookie = new SimpleCookie();
+//        simpleCookie.setName(NAME);
+//        simpleCookie.setValue(VALUE);
+//        return simpleCookie;
+//    }
+
     @Bean("securityManager")
-    public SessionsSecurityManager securityManager() {
+    public SessionsSecurityManager securityManager(RedisCacheManager redisCacheManager) {
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
 //        manager.setSessionManager(sessionManager);
-//        manager.setCacheManager(redisCacheManager);
+        manager.setCacheManager(redisCacheManager);
 //        manager.setRealm(DbRealm());
-        manager.setRealms(Arrays.asList(jwtShiroRealm(),DbRealm()));
+        manager.setRealms(Arrays.asList(jwtShiroRealm(redisCacheManager)));
+
         return manager;
     }
     /**
      * 初始化Authenticator
      */
     @Bean
-    public Authenticator authenticator() {
+    public Authenticator authenticator(RedisCacheManager redisCacheManager) {
         ModularRealmAuthenticator authenticator = new ModularRealmAuthenticator();
         //设置两个Realm，一个用于用户登录验证和访问权限获取；一个用于jwt token的认证
-        authenticator.setRealms(Arrays.asList(jwtShiroRealm(),DbRealm()));
+        authenticator.setRealms(Arrays.asList(jwtShiroRealm(redisCacheManager)));
         //设置多个realm认证策略，一个成功即跳过其它的
         authenticator.setAuthenticationStrategy(new FirstSuccessfulStrategy());
         return authenticator;
@@ -124,20 +189,33 @@ public class ShiroConfig {
         return filterRegistrationBean;
     }
 
-    @Bean("dbRealm")
-    public Realm DbRealm() {
-        DbShiroRealm realm = new DbShiroRealm();
-//        realm.setCacheManager(redisCacheManager);
-//        realm.setAuthenticationCachingEnabled(false);
-//        realm.setAuthorizationCachingEnabled(false);
-        return realm;
-    }
+//    @Bean("dbRealm")
+//    public Realm DbRealm() {
+//        DbShiroRealm realm = new DbShiroRealm();
+////        realm.setCacheManager(redisCacheManager);
+////        realm.setAuthenticationCachingEnabled(false);
+////        realm.setAuthorizationCachingEnabled(false);
+//        return realm;
+//    }
     /**
      * 用于JWT token认证的realm
      */
     @Bean("jwtRealm")
-    public Realm jwtShiroRealm() {
+    public Realm jwtShiroRealm(RedisCacheManager redisCacheManager) {
         JWTShiroRealm myShiroRealm = new JWTShiroRealm();
+        myShiroRealm.setCacheManager(redisCacheManager);
+        myShiroRealm.setName("222222222");
+        myShiroRealm.setAuthorizationCachingEnabled(false);
+        myShiroRealm.setAuthorizationCachingEnabled(false);
+
+        /* 允许认证缓存 */
+//        myShiroRealm.setAuthenticationCachingEnabled(true);
+//        myShiroRealm.setAuthenticationCacheName("authenticationCache");
+//
+//        /* 允许授权缓存 */
+//        myShiroRealm.setAuthorizationCachingEnabled(true);
+//        myShiroRealm. setAuthorizationCacheName("authorizationCache");
+
         return myShiroRealm;
     }
     @Bean
@@ -161,9 +239,12 @@ public class ShiroConfig {
         //login不做认证，noSessionCreation的作用是用户在操作session时会抛异常
         chainDefinition.addPathDefinition("/api/userAdmin/login", "anon");
         chainDefinition.addPathDefinition("/api/userAdmin/logout", "anon");
-        chainDefinition.addPathDefinition("/api/userAdmin/info", "noSessionCreation,authc,anon[Commodity_ype]");
-        chainDefinition.addPathDefinition("/sys/user/**", "noSessionCreation,authc,anon[Commodity_ype]");
-        chainDefinition.addPathDefinition("/sys/role/**", "noSessionCreation,authc,anon[Commodity_ype]");
+        chainDefinition.addPathDefinition("/api/wxUser/wxLogin", "anon");
+        //       chainDefinition.addPathDefinition("/api/userAdmin/info", "noSessionCreation,authc");
+       chainDefinition.addPathDefinition("/api/userAdmin/info", "noSessionCreation,authc,anon[Commodity_ype],perms[admin:user:info]");
+        chainDefinition.addPathDefinition("/sys/user/index", "noSessionCreation,authc,anon[Commodity_ype],perms[admin:user:info]");
+//        chainDefinition.addPathDefinition("/sys/user/**", "noSessionCreation,authc,anon[Commodity_ype]");
+//        chainDefinition.addPathDefinition("/sys/role/**", "noSessionCreation,authc,anon[Commodity_ype]");
 //        chainDefinition.addPathDefinition("/admin/**", "noSessionCreation,authc,anon[admin,manager]"); //只允许admin或manager角色的用户访问
 //        chainDefinition.addPathDefinition("/article/list", "noSessionCreation,authc");
 //        chainDefinition.addPathDefinition("/logout", "noSessionCreation,authcToken[permissive]"); //做用户认证，permissive参数的作用是当token无效时也允许请求访问，不会返回鉴权未通过的错误
@@ -181,15 +262,18 @@ public class ShiroConfig {
         DefaultWebSessionStorageEvaluator sessionStorageEvaluator = new DefaultWebSessionStorageEvaluator();
         sessionStorageEvaluator.setSessionStorageEnabled(false);
         return sessionStorageEvaluator;
+
     }
 
-    protected JwtAuthFilter createAuthFilter(){
-        return new JwtAuthFilter();
+    protected JwtAuthFilter createAuthFilter(UserAdminServiceImpl userAdminService){
+        return new JwtAuthFilter(userAdminService);
     }
 
     protected AnyRolesAuthorizationFilter createRolesFilter(){
         return new AnyRolesAuthorizationFilter();
     }
+
+    protected ShiroPermissionsFilter createPermission(){return new ShiroPermissionsFilter();}
 //
     /**
      * 注册全局异常处理
@@ -205,49 +289,7 @@ public class ShiroConfig {
      * 使用session
      */
 
-    /**
-     * Redis集群使用RedisClusterManager，单个Redis使用RedisManager
-     * @param redisProperties
-     * @return
-     */
-//
-//    @Bean
-//    public RedisManager redisManager(JedisPool jedisPool) {
-//        RedisManager redisManager = new RedisManager();
-//        redisManager.setJedisPool(jedisPool);
-//        return redisManager;
-//    }
-//
-//    @Bean
-//    public RedisCacheManager redisCacheManager(RedisManager redisManager) {
-//        RedisCacheManager redisCacheManager = new RedisCacheManager();
-//        redisCacheManager.setKeyPrefix(CACHE_KEY);
-//        redisCacheManager.setRedisManager(redisManager);
-//        return redisCacheManager;
-//    }
-//
-//    @Bean
-//    public RedisSessionDAO redisSessionDAO(RedisManager redisManager) {
-//        RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
-//        redisSessionDAO.setKeyPrefix(SESSION_KEY);
-//        redisSessionDAO.setRedisManager(redisManager);
-//        return redisSessionDAO;
-//    }
-//    @Bean
-//    public DefaultWebSessionManager sessionManager(RedisSessionDAO sessionDAO, SimpleCookie simpleCookie) {
-//        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-//        sessionManager.setSessionDAO(sessionDAO);
-//        sessionManager.setSessionIdCookieEnabled(true);
-//        sessionManager.setSessionIdCookie(simpleCookie);
-//        return sessionManager;
-//    }
-//
-//    @Bean
-//    public SimpleCookie simpleCookie() {
-//        SimpleCookie simpleCookie = new SimpleCookie();
-//        simpleCookie.setName(NAME);
-//        simpleCookie.setValue(VALUE);
-//        return simpleCookie;
-//    }
+
+
 
 }

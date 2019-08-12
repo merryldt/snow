@@ -25,6 +25,7 @@
 
 
     <properties>
+
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -42,11 +43,12 @@
         <redis.clients.version>2.9.0</redis.clients.version>
         <lombok.version>1.18.6</lombok.version>
         <slf4j.log4j12.version>1.7.21</slf4j.log4j12.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
         <springfox.swagger.ui.version>2.8.0</springfox.swagger.ui.version>
         <springfox.swagger2.version>2.8.0</springfox.swagger2.version>
         <mybatis.plus.version>2.1.9</mybatis.plus.version>
         <druid.version>1.0.26</druid.version>
-        <mysql.version>5.1.21</mysql.version>
+        <mysql.version>8.0.11</mysql.version>
         <org.mybatis.spring.boot.version>1.2.0</org.mybatis.spring.boot.version>
         <org.bouncycastle.version>1.46</org.bouncycastle.version>
         <org.codehaus.xfire.version>1.2.6</org.codehaus.xfire.version>
@@ -54,9 +56,45 @@
         <cn.hutool.version>4.5.10</cn.hutool.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>1.5.9.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>1.5.9.RELEASE</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.summer</groupId>
+                <artifactId>icommon</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.summer</groupId>
+                <artifactId>isnow</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.summer</groupId>
+                <artifactId>icore</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>1.5.9.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>1.8.9.RELEASE</version>
+            </dependency>
             <!-- mybatis-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
@@ -111,6 +149,11 @@
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.log4j12.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
             <!--lombok -->
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
@@ -164,15 +207,6 @@
                 <artifactId>shiro-spring-boot-web-starter</artifactId>
                 <version>${shiro.spring.version}</version>
             </dependency>
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>${redis.clients.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-            </dependency>
             <!--weixin小程序解密 -->
             <dependency>
                 <groupId>org.codehaus.xfire</groupId>
@@ -194,6 +228,7 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${cn.hutool.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>

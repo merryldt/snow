@@ -6,13 +6,19 @@ public class JWTToken implements HostAuthenticationToken {
     private String token;
     private String host;
     public JWTToken(String token) {
-        //this.token=token;
-       this(token, null);
+        this.token=token;
+//        this.host = "2";
+//       this(token, null);
     }
     public JWTToken(String token, String host) {
         this.token = token;
         this.host = host;
     }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
     public String getToken(){
         return this.token;
     }

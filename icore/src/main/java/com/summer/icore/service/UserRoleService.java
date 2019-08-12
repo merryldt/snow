@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface UserRoleService extends IService<UserRole> {
     List<UserRole>  findUserRoleByMap();
+    UserRole findUserRoleByCategory(String category);
+    UserRole  getRolesByPermission(Integer permissionId );
 }

@@ -23,9 +23,10 @@
 		<result column="luckey_count" property="luckeyCount"/>
 		<result column="history_integration" property="historyIntegration"/>
 		<result column="salt" property="salt"/>
+		<result column="login_time" property="loginTime"/>
 	</resultMap>
 	<sql id="Base_Column_List">
-		id,member_level_id,user_name,password,nick_name,phone,status,create_time,update_time,icon,gender,birthday,city,job,personalized_signature,source_type,integration,growth,luckey_count,history_integration,salt
+		id,member_level_id,user_name,password,nick_name,phone,status,create_time,update_time,icon,gender,birthday,city,job,personalized_signature,source_type,integration,growth,luckey_count,history_integration,salt,login_time
 	</sql>
 	<select id="getUserInfo" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select * from user

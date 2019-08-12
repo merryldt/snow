@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.summer</groupId>
@@ -10,25 +9,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>isnow</artifactId>
-    <packaging>war</packaging>
-
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+  <properties>
+      <docker.image.prefix>springboot</docker.image.prefix>
+  </properties>
     <dependencies>
         <dependency>
             <groupId>com.summer</groupId>
             <artifactId>icommon</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.summer</groupId>
             <artifactId>icore</artifactId>
-            <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- SpringBoot 默认有内嵌的 tomcat 模块，因此，我们要把这一部分排除掉。
 即：我们在 spring-boot-starter-web 里面排除了 spring-boot-starter-tomcat ，但是我们为了在本机测试方便，我们还要引入它，所以我们这样写： -->
         <dependency>
@@ -44,11 +47,6 @@
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <!-- 使用Jasper引擎解析JSP -->
         <dependency>
@@ -69,11 +67,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -101,7 +94,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>2.1.5.RELEASE</version>
         </dependency>
         <!--jwt 和shior-->
         <!--<dependency>-->
@@ -112,11 +104,6 @@
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis</artifactId>
             <version>3.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -155,6 +142,7 @@
             <artifactId>hutool-all</artifactId>
             <version>4.5.10</version>
         </dependency>
+
     </dependencies>
 
 
@@ -215,7 +203,37 @@
         </resources>
 
         <plugins>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.summer.isnow.ISnowApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- Docker maven plugin -->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<version>1.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
+                    <!--<dockerDirectory>src/main/docker</dockerDirectory>-->
+                    <!--<resources>-->
+                        <!--<resource>-->
+                            <!--<targetPath>/</targetPath>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<include>${project.build.finalName}.jar</include>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!-- Docker maven plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -241,7 +259,7 @@
 
                 <configuration>
                     <!--<fork>true</fork> 如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
-                    <mainClass>com.summer.isnow.WebsitesApplication</mainClass>
+                    <mainClass>com.summer.isnow.ISnowApplication</mainClass>
                     <executable>true</executable>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
@@ -259,15 +277,15 @@
 
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <!--<warName>${packageName}</warName>-->
-                    <warName>isnow</warName>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                    <!--&lt;!&ndash;<warName>${packageName}</warName>&ndash;&gt;-->
+                    <!--<warName>isnow</warName>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
         </plugins>
     </build>

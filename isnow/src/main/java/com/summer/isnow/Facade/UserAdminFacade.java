@@ -5,8 +5,10 @@ import com.summer.icore.model.User;
 import com.summer.icore.model.UserAdmin;
 import com.summer.icore.service.UserAdminService;
 import com.summer.icore.service.UserService;
+import com.summer.isnow.dto.UserAdminView;
 import com.summer.isnow.dto.UserView;
 import com.summer.isnow.exception.BaseException;
+import com.summer.isnow.utils.ShiroKit;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -38,19 +40,27 @@ public class UserAdminFacade {
         Map<String,Object> filters = new HashMap<>();
         Subject subject = SecurityUtils.getSubject();
         try {
-            UsernamePasswordToken token = new UsernamePasswordToken(userName, password, false);
-//            token.setRememberMe(true);
-            subject.login(token);
-            subject.isAuthenticated();
+
+//            UsernamePasswordToken token = new UsernamePasswordToken(userName, password, false);
+////            token.setRememberMe(true);
+//            subject.login(token);
+//            subject.isAuthenticated();
 //            subject.isRemembered();
 
             UserAdmin user = userService.getUserAdminByName(userName);
-            String  authToken = userService.generateJwtToken(userName);
-            filters.put("token",authToken);
-            filters.put("tokenHead",tokenHead);
-            filters.put("userId",user.getId());
-            filters.put("userName",userName);
-            filters.put("result",1);
+            UserAdminView userAdminView = new UserAdminView();
+            if(null != user){
+                String passwords = ShiroKit.md5(password,userName+user.getSalt());
+                if(passwords.equals(user.getPassword())){
+                    String  authToken = userService.generateJwtToken(userName);
+                    System.out.println("22222222：：---"+authToken);
+                    filters.put("token",authToken);
+                    filters.put("tokenHead",tokenHead);
+                    filters.put("userId",user.getId());
+                    filters.put("userName",userName);
+                    filters.put("result",1);
+                }
+            }
         }catch (AuthenticationException e){
             filters.put("result",0);
             logger.error("login failed : {}", e);
@@ -62,10 +72,12 @@ public class UserAdminFacade {
     }
 
     //通过姓名查找用户
-    public UserAdmin getUserByName(Integer userId){
+    public UserAdminView getUserByName(Integer userId){
         UserAdmin user = userService.selectById(userId);
-//        UserView userView = new UserView();
-//        BeanUtils.copyProperties(user,userView);
-        return user;
+        UserAdminView userAdminView = new UserAdminView();
+//        userAdminView.setUsername(user.getUsername());
+//        userAdminView.setPassword(user.getPassword());
+        BeanUtils.copyProperties(user,userAdminView);
+        return userAdminView;
     }
 }

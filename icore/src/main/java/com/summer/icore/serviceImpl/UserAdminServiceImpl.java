@@ -32,7 +32,7 @@ public class UserAdminServiceImpl extends ServiceImpl<UserAdminMapper,UserAdmin>
          */
         System.out.println("username : salt " +username +"---"+ user.getSalt() );
         //生成jwt token，设置过期时间为1小时
-        return JwtUtils.sign(username, user.getSalt(), 3600);
+        return JwtUtils.sign(username, user.getSalt(), 3600L);
     }
 
     @Override

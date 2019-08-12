@@ -35,7 +35,7 @@ public class MD5Util {
   
   public static byte[] hash(String userName, byte[] passwd) throws GeneralSecurityException {
       MessageDigest md5 = MessageDigest.getInstance("MD5"); //$NON-NLS-1$
-      md5.update(StringUtils.toBytesQuietly(userName));
+      md5.update(StringUtil.toBytesQuietly(userName));
       md5.update(passwd);
       return md5.digest();
   }

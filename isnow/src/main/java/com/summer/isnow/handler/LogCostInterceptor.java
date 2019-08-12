@@ -34,7 +34,7 @@ public class LogCostInterceptor  implements HandlerInterceptor {
          * 校验白名单
          */
 //        String remoteHost = getRealIP(request);
-//        if (StringUtils.isEmpty(remoteHost)) {
+//        if (StringUtil.isEmpty(remoteHost)) {
 //            logger.error("invalid request,remoteHost is " + remoteHost);
 //            throw new Exception("非法访问！");
 //        }

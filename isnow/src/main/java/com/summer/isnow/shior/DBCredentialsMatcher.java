@@ -1,12 +1,10 @@
 package com.summer.isnow.shior;
 
-import com.summer.icommon.utils.StringUtils;
+import com.summer.icommon.utils.StringUtil;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
-import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
@@ -54,8 +52,8 @@ public class DBCredentialsMatcher extends HashedCredentialsMatcher {
      * MD5加密---md5转为大写
      */
     private String encrypt(String data,String salt) {
-        if (StringUtils.isBlank(data)) {
-            return StringUtils.EMPTY;
+        if (StringUtil.isBlank(data)) {
+            return StringUtil.EMPTY;
         }
         return   new Md5Hash(data,salt,1).toHex();
     }

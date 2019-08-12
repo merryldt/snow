@@ -1,6 +1,7 @@
 package com.summer.icore.serviceImpl;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.summer.icore.dao.UserAdminMapper;
+import com.summer.icore.dao.UserRoleMapper;
 import com.summer.icore.model.UserAdmin;
 import com.summer.icore.utils.ShiroUtil;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -27,6 +28,9 @@ public class UserPermissionServiceImpl extends ServiceImpl<UserPermissionMapper,
     @Autowired
     private UserAdminMapper userAdminMapper;
 
+    @Autowired
+    private UserRoleMapper userRoleMapper;
+
 
     @Override
     public Map<String, String> loadFilterChainDefinitions() {
@@ -37,11 +41,12 @@ public class UserPermissionServiceImpl extends ServiceImpl<UserPermissionMapper,
             String uris;
             String[] uriArr;
             for (UserPermission userPermission : userPermissions) {
-                if (StringUtils.isEmpty(userPermission.getCategory())) {
+                if (StringUtils.isEmpty(userPermission.getValue())) {
                     continue;
                 }
                 StringBuilder sb = new StringBuilder();
-                sb.append("roles").append("[").append(userPermission.getCategory()).append("]");
+                sb.append("noSessionCreation,authc,").append("anon").append("[").append(userPermission.getCategory()).append("]").
+                        append("perms").append("[").append(userPermission.getValue()).append("]");
                 uris = userPermission.getUri();
                 if(null != uris){
                     uriArr = uris.split(",");
@@ -51,11 +56,11 @@ public class UserPermissionServiceImpl extends ServiceImpl<UserPermissionMapper,
                 }
             }
         }
-        filterChainDefinitionMap.put("/user/login", "anon");
-        //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
-        filterChainDefinitionMap.put("/user/logout", "anon");
-        //拦截所有请求
-        filterChainDefinitionMap.put("/**", "authc");
+//        filterChainDefinitionMap.put("/user/login", "anon");
+//        //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
+//        filterChainDefinitionMap.put("/user/logout", "anon");
+//        //拦截所有请求
+//        filterChainDefinitionMap.put("/**", "authc");
         return filterChainDefinitionMap;
     }
 

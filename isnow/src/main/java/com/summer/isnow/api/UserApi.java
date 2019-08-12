@@ -1,10 +1,8 @@
 package com.summer.isnow.api;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.summer.icommon.utils.ResponseCode;
 import com.summer.icommon.utils.ResponseModel;
-import com.summer.icommon.utils.StringUtils;
+import com.summer.icommon.utils.StringUtil;
 import com.summer.icore.model.User;
 import com.summer.isnow.Facade.UserFacade;
 import com.summer.isnow.dto.UserView;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +32,7 @@ public class UserApi {
     //后台登陆
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ResponseModel  login(@RequestBody UserView userView){
-        if(!StringUtils.isNull(userView.getUserName())|| !StringUtils.isNull(userView.getPassword())){
+        if(!StringUtil.isNull(userView.getUserName())|| !StringUtil.isNull(userView.getPassword())){
             logger.warn("userName or password is null");
             return new ResponseModel(ResponseCode.REQUEST_PARAMETER_NULL);
         }

@@ -1,8 +1,11 @@
 package com.summer.isnow.dto;
 
 import java.io.Serializable;
-
-public class ArgumentInvalidResult implements Serializable{  
+/**
+ * @author liudongting
+ * @date 2019/7/10 17:11
+ */
+public class ArgumentInvalidResult implements Serializable{
     /**
 	 * 
 	 */

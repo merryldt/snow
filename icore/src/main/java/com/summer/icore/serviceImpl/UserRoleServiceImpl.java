@@ -21,4 +21,22 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper,UserRole> im
         Map<String,Object> filters = new HashMap<>();
         return userRoleMapper.selectByMap(filters);
     }
+
+    @Override
+    public UserRole findUserRoleByCategory(String category) {
+        Map<String,Object> filters = new HashMap<>();
+        if(null != category && !"".equals(category)){
+            filters.put("category",category);
+            List<UserRole> userRoleList = userRoleMapper.selectByMap(filters);
+            if(null != userRoleList && userRoleList.size()>=1){
+                return userRoleList.get(0);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public UserRole getRolesByPermission(Integer permissionId) {
+        return userRoleMapper.getRolesByPermission(permissionId);
+    }
 }

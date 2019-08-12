@@ -4,13 +4,12 @@ import cn.hutool.core.util.CharsetUtil;
 import com.alibaba.fastjson.JSON;
 import com.summer.icommon.exception.GeneralException;
 import com.summer.icommon.utils.ResponseModel;
-import com.summer.icommon.utils.StringUtils;
+import com.summer.icommon.utils.StringUtil;
 import org.apache.shiro.authz.UnauthenticatedException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -64,13 +63,13 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
             GeneralException b = (GeneralException) e;
 //            int code = b.getCode();
             String message = null;
-            if(StringUtils.isNotBlank(b.getMessage())){
+            if(StringUtil.isNotBlank(b.getMessage())){
                 message = b.getMessage();
             }else{
                 message = "系统繁忙，请稍后重试";
             }
             result =ResponseModel.ERROR(message);
-            logger.warn(StringUtils.defaultIfBlank(b.getMessage(), StringUtils.defaultIfBlank(e.getMessage(), "系统异常")), e);
+            logger.warn(StringUtil.defaultIfBlank(b.getMessage(), StringUtil.defaultIfBlank(e.getMessage(), "系统异常")), e);
         }else if(e instanceof IllegalArgumentException) {
             result = ResponseModel.ERROR("参数错误");
         }else if(e instanceof HttpRequestMethodNotSupportedException){
@@ -89,7 +88,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
             }
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
             if(fieldErrors!=null && fieldErrors.size()>0){
-                if(StringUtils.isNotBlank(fieldErrors.get(0).getDefaultMessage())){
+                if(StringUtil.isNotBlank(fieldErrors.get(0).getDefaultMessage())){
                     result = ResponseModel.ERROR(fieldErrors.get(0).getDefaultMessage());
                     return result;
                 }
@@ -100,7 +99,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
             return result;
         }else {
             result = ResponseModel.ERROR("系统繁忙，请稍后重试");
-            logger.error(StringUtils.defaultIfBlank(e.getMessage(), "系统异常"), e);
+            logger.error(StringUtil.defaultIfBlank(e.getMessage(), "系统异常"), e);
         }
 
         return result;

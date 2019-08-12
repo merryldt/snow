@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.summer.icore.dao.WxUserMapper">
+<resultMap id="BaseResultMap" type="com.summer.icore.model.WxUser">
+	<id column="id" property="id"/>
+	<result column="icon" property="icon"/>
+	<result column="city" property="city"/>
+	<result column="country" property="country"/>
+	<result column="gender" property="gender"/>
+	<result column="is_follow" property="isFollow"/>
+	<result column="nick_name" property="nickName"/>
+	<result column="province" property="province"/>
+	<result column="user_phone" property="userPhone"/>
+	<result column="status" property="status"/>
+	<result column="wx_union_id" property="wxUnionId"/>
+	<result column="open_id" property="openId"/>
+	<result column="create_time" property="createTime"/>
+	<result column="update_time" property="updateTime"/>
+	<result column="user_id" property="userId"/>
+</resultMap>
+<sql id="Base_Column_List">
+	id,icon,city,country,gender,is_follow,nick_name,province,user_phone,status,wx_union_id,open_id,create_time,update_time,user_id
+</sql>
+
+	<select id="getWxUserByOpenId" resultMap="BaseResultMap" parameterType="integer">
+		select  * from  wx_user
+		<where>
+			<if test="openId != null">
+				open_id = #{openId}
+			</if>
+		</where>
+	</select>
+</mapper>

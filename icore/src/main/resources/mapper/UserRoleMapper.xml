@@ -15,9 +15,16 @@
 		id,name,description,admin_count,create_time,status,sort,category
 	</sql>
 
-	<!--<select id="getRolesByPermission" resultMap="BaseResultMap" parameterType="int">-->
-          <!--select  ur.* from user_role ur-->
-          <!--left  join  user_role_permission_relation urpr-->
-          <!--on ur.ur-->
-	<!--</select>-->
+	<select id="getRolesByPermission" resultMap="BaseResultMap" parameterType="int">
+          select  ur.category  from user_permission up
+          left  join  user_role_permission_relation urpr
+          on up.id = urpr.permission_id
+          left join  user_role ur
+          on urpr.role_id = ur.id
+          <where>
+		     <if test="permissionId != null" >
+				 up.id = #{permissionId}
+			 </if>
+		  </where>
+	</select>
 </mapper>

@@ -40,7 +40,7 @@
 	</update>
 
 	<select id="findAuthorities" resultMap="BaseResultMap">
-		SELECT up.*,ur.category from user_permission up
+		SELECT up.*,ur.category  from user_permission up
 		LEFT JOIN user_role_permission_relation urpr
 		on up.id = urpr.permission_id
 		LEFT JOIN user_role ur

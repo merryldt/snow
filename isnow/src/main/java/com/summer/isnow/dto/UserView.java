@@ -3,7 +3,10 @@ package com.summer.isnow.dto;
 import lombok.Data;
 
 import java.util.Date;
-
+/**
+ * @author liudongting
+ * @date 2019/7/10 17:11
+ */
 @Data
 public class UserView {
 

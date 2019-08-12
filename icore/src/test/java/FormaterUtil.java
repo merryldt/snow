@@ -52,11 +52,11 @@ public class FormaterUtil<T> {
 //               "com.summer.icore.model");
 //    }
     public static void main(String[] args) throws ParserConfigurationException {
-        createXml("D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\UserRolePermissionRelationMapper.xml",
-                "D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\UserRolePermissionRelationMapper.xml",
-                UserRolePermissionRelation.class,
-                "user_role_permission_relation",
-                "s_user_role_permission_relation",
+        createXml("D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\WxUserMapper.xml",
+                "D:\\study\\snow\\icore\\src\\main\\resources\\mapper\\WxUserMapper.xml",
+                WxUser.class,
+                "wx_user",
+                "wu",
                 "com.summer.icore.",
                 "com.summer.icore.model");
     }

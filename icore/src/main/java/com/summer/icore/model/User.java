@@ -58,6 +58,9 @@ public class User  extends Model<User> {
 	@TableField("update_time")
 	private Date updateTime;
 
+	@TableField("login_time")
+	private Date loginTime;
+
 	private String icon;
 
 	private String gender;
