@@ -33,40 +33,24 @@ public class WxUser  extends Model<WxUser> {
 	private String country;
 
 	private String gender;
-
-	@ApiModelProperty()
 	@TableField("is_follow")
 	private Integer isFollow;
-
-	@ApiModelProperty()
 	@TableField("nick_name")
 	private String nickName;
 
 	private String province;
-
-	@ApiModelProperty()
 	@TableField("user_phone")
 	private String userPhone;
 
 	private Integer status;
-
-	@ApiModelProperty()
 	@TableField("wx_union_id")
 	private String wxUnionId;
-
-	@ApiModelProperty()
 	@TableField("open_id")
 	private String openId;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
-	@ApiModelProperty()
 	@TableField("update_time")
 	private Date updateTime;
-
-	@ApiModelProperty()
 	@TableField("user_id")
 	private Integer userId;
 

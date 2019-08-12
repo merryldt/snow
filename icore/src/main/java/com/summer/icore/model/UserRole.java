@@ -23,26 +23,15 @@ public class UserRole  extends Model<UserRole> {
 	@ApiModelProperty(value = "ID", required = true)
 	 @TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-
 	private String name;
-
 	private String description;
-
-	@ApiModelProperty()
 	@TableField("admin_count")
 	private Integer adminCount;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
 	private Integer status;
-
 	private Integer sort;
-
 	private String category;
-
-
 
   	public Integer getId() {
    	 return id;

@@ -20,30 +20,18 @@ public class UserPermission  extends Model<UserPermission> {
 	@Override
 	protected Serializable pkVal() {  return this.id;  }
 
-	@ApiModelProperty(value = "ID", required = true)
 	 @TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-
 	private Integer pid;
-
 	private String name;
-
 	private String value;
-
 	private String icon;
-
 	private Integer type;
-
 	private String uri;
-
 	private Integer status;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
 	private Integer sort;
-
 	@TableField(exist = false)
 	private String category;
 

@@ -13,8 +13,6 @@ public class ResponseModel<T> implements Serializable {
   private static final long serialVersionUID = 1L;
   private int code;
   private String message;
-
-  @JsonView(value = View.Base.class )
   private T data;
   private int count;
   private T parent;

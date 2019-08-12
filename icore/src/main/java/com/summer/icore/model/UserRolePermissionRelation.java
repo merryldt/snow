@@ -19,20 +19,14 @@ public class UserRolePermissionRelation  extends Model<UserRolePermissionRelatio
 	private static final long serialVersionUID = 1L;
 	@Override
 	protected Serializable pkVal() {  return this.id;  }
-
-	@ApiModelProperty(value = "ID", required = true)
 	 @TableId(value="id", type= IdType.AUTO)
 	private Integer id;
 
-	@ApiModelProperty()
 	@TableField("role_id")
 	private Integer roleId;
 
-	@ApiModelProperty()
 	@TableField("permission_id")
 	private Integer permissionId;
-
-
 
   	public Integer getId() {
    	 return id;
@@ -41,14 +35,12 @@ public class UserRolePermissionRelation  extends Model<UserRolePermissionRelatio
    	 this.id = id;
  	 }
 
-
   	public Integer getRoleId() {
    	 return roleId;
  	 }
   	public void setRoleId(Integer roleId) {
    	 this.roleId = roleId;
  	 }
-
 
   	public Integer getPermissionId() {
    	 return permissionId;

@@ -25,23 +25,14 @@ public class UserAdminRoleRelation  extends Model<UserAdminRoleRelation> {
 	@ApiModelProperty(value = "ID", required = true)
 	 @TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-
-	@ApiModelProperty()
 	@TableField("admin_id")
 	private Integer adminId;
-
-	@ApiModelProperty()
 	@TableField("role_id")
 	private Integer roleId;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
-	@ApiModelProperty()
 	@TableField("update_time")
 	private Date updateTime;
-
 	private Integer status;
 
 

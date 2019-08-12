@@ -28,66 +28,36 @@ public class User  extends Model<User> {
 	@ApiModelProperty(value = "ID", required = true)
 	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-
 	@TableField("salt")
 	private String salt;
-
-	@ApiModelProperty()
 	@TableField("member_level_id")
 	private Integer memberLevelId;
-
-	@ApiModelProperty()
 	@TableField("user_name")
 	private String userName;
-
 	private String password;
-
-	@ApiModelProperty()
 	@TableField("nick_name")
 	private String nickName;
-
 	private String phone;
-
 	private Integer status;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
-	@ApiModelProperty()
 	@TableField("update_time")
 	private Date updateTime;
-
 	@TableField("login_time")
 	private Date loginTime;
-
 	private String icon;
-
 	private String gender;
-
 	private Date birthday;
-
 	private String city;
-
 	private String job;
-
-	@ApiModelProperty()
 	@TableField("personalized_signature")
 	private String personalizedSignature;
-
-	@ApiModelProperty()
 	@TableField("source_type")
 	private Integer sourceType;
-
 	private Integer integration;
-
 	private Integer growth;
-
-	@ApiModelProperty()
 	@TableField("luckey_count")
 	private Integer luckeyCount;
-
-	@ApiModelProperty()
 	@TableField("history_integration")
 	private Integer historyIntegration;
 

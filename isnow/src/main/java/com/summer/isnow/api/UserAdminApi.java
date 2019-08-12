@@ -25,9 +25,6 @@ import java.util.Map;
 @ApiResponses(value = {
         @ApiResponse(code = 200, message = "请求正常完成"),
         @ApiResponse(code = 400, message = "请求中有语法问题，或不能满足请求"),
-//        @ApiResponse(code = 401, message = "未授权客户机访问数据"),
-//        @ApiResponse(code = 403, message = "服务器接受请求，但是拒绝处理"),
-//        @ApiResponse(code = 404, message = "服务器找不到给定的资源，文档不存在"),
         @ApiResponse(code = 500, message = "服务器出现异常")}
 )
 @RequestMapping("api/userAdmin")
@@ -50,7 +47,6 @@ public class UserAdminApi extends  BaseApi{
             @ApiImplicitParam(name = "username", value = "用户名", required = true),
             @ApiImplicitParam(name = "password", value = "密码", required = true)})
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    @JsonView(value = View.Base.class )
     public ResponseModel  login(@RequestBody UserAdminView userView){
         if(!StringUtil.isNull(userView.getUsername())|| !StringUtil.isNull(userView.getPassword())){
             logger.warn("userName or password is null");
@@ -74,22 +70,12 @@ public class UserAdminApi extends  BaseApi{
         logger.warn("userNam111e or password is null");
         String username = "";
         //已经登录过
-//        if (subject.isAuthenticated()) {
-//            String token =  subject.getPrincipal().toString();
-//            if(null!= user){
-//                if(! user.getUsername().equals(userViews.getUsername())){
-//
-//                }
-//            }
-//            username = user.getUsername();
-//        }
-
         String header = httpRequest.getHeader("token");
         String name = JwtUtils.getUsername(header);
         UserAdminView userView = userFacade.getUserByName(userViews.getId());
-//        if(null == userView){
-//            return new ResponseModel(ResponseCode.SUCCESS,"查无此人");
-//        }
+        if(null == userView){
+            return new ResponseModel(ResponseCode.SUCCESS,"查无此人");
+        }
         Map<String, Object> data = new HashMap<>();
         data.put("userId", userView.getId());
         data.put("userName", userView.getUsername());

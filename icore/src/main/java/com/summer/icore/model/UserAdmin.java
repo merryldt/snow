@@ -27,37 +27,21 @@ public class UserAdmin  extends Model<UserAdmin> {
 	@ApiModelProperty(value = "ID", required = true)
 	 @TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-
 	private String username;
-
 	private String password;
-
 	private String icon;
-
 	private String email;
-
-	@ApiModelProperty()
 	@TableField("nick_name")
 	private String nickName;
-
 	private String note;
-
-	@ApiModelProperty()
 	@TableField("create_time")
 	private Date createTime;
-
-	@ApiModelProperty()
 	@TableField("login_time")
 	private Date loginTime;
-
 	private Integer status;
-
-	@ApiModelProperty()
 	@TableField("update_time")
 	private Date updateTime;
-
 	private String salt;
-
 	@TableField(exist = false)
 	private List<String> roles;
 
